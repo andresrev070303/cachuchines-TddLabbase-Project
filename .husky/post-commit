@@ -12,3 +12,6 @@ git add script/commit-history.json
 git add script/tdd_log.json
 git commit --amend --no-edit 
 unset HUSKY
+
+# HU-07: el SHA definitivo existe después del amend. El envío nunca bloquea el commit.
+node "$REPO_DIR/script/send-test-results.js" || echo "[HU-07] No se pudo ejecutar el envío; se conserva el respaldo local."

@@ -8,6 +8,8 @@
     "start": "parcel index.html",
     "build": "parcel build index.html",
     "test": "node ./script/tddScript.js",
+    "test:hu07": "node --test script/tests/test-results.test.mjs",
+    "send:test-results": "node ./script/send-test-results.js",
     "cypress": "cypress open",
     "cypress-run": "cypress run",
     "lint": "eslint .",

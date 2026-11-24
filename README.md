@@ -20,3 +20,11 @@ npm test
 
 Ejecutar pruebas de unidad solo una vez:
 npm run test-once
+
+### HU-07: avance de envío de resultados al backend
+
+Se agregó un emisor que utiliza `TDDLAB_RESULTS_ENDPOINT` y se ejecuta después del commit, conservando los respaldos JSON actuales. El contrato es provisional y el avance se validó con datos falsos.
+
+Demostración local sin backend externo: `npm run test:hu07`.
+
+Ver [alcance, configuración y pendientes](docs/hu07-envio-resultados.md) y [evidencia de validación](docs/evidencias/hu07-validacion.md).
