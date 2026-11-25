@@ -54,9 +54,15 @@
     "testId": 8
   },
   {
-    "commitId": "HEAD",
+    "commitId": "03833c7ad16b0a69e65cc97cc918fcb19c209157",
     "commitName": "test(hu07): run send check against database backend\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
     "commitTimestamp": 1795646703104,
     "testId": 9
+  },
+  {
+    "commitId": "HEAD",
+    "commitName": "fix(scripts): give ingest-logs a longer timeout\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+    "commitTimestamp": 1795647060961,
+    "testId": 10
   }
 ]

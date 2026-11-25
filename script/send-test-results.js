@@ -10,6 +10,9 @@ const projectDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url
 const defaultErrorLog = path.join(projectDirectory, 'script', 'backend-errors.log');
 const shaPattern = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 
+// /ingest-logs guarda todo el historial en la BD y tarda más (4-7 s medidos con 10 commits).
+export const defaultTimeouts = { jobs: 3000, 'ingest-logs': 15000 };
+
 // El tracker usa "neutral"; el backend (HU-03) espera "skipped".
 const conclusionMap = { success: 'success', failure: 'failure', neutral: 'skipped' };
 
@@ -114,7 +117,7 @@ export async function sendToBackend(endpointName, url, payload, {
 export async function uploadLatestCommit({
   repositoryDirectory = projectDirectory,
   backendUrl = process.env.TDDLAB_BACKEND_URL,
-  timeoutMs = 3000,
+  timeouts = defaultTimeouts,
 } = {}) {
   const urls = resolveBackendUrls(backendUrl);
   if (!urls) {
@@ -168,7 +171,7 @@ export async function uploadLatestCommit({
     } catch (error) {
       return recordFailure(name, error, errorLogPath, context.sha);
     }
-    return sendToBackend(name, urls[name], payload, { timeoutMs, errorLogPath });
+    return sendToBackend(name, urls[name], payload, { timeoutMs: timeouts[name], errorLogPath });
   }));
   return Object.fromEntries(names.map((name, index) => [
     name,

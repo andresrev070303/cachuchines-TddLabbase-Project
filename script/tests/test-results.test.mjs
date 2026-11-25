@@ -11,6 +11,7 @@ import { promisify } from 'node:util';
 import {
   buildIngestLogsPayload,
   buildTestResultPayload,
+  defaultTimeouts,
   parseRepositoryRemote,
   resolveBackendUrls,
   sendToBackend,
@@ -223,6 +224,23 @@ test('un tdd_log corrupto solo bloquea /ingest-logs: /jobs se envía igual y el 
   assert.deepEqual(received, ['/api/TDDCycles/jobs']);
   assert.equal(fs.readFileSync(path.join(directory, 'script', 'tdd_log.json'), 'utf8'), 'JSON inválido');
   assert.deepEqual(readErrors(path.join(directory, 'script', 'backend-errors.log')).map((record) => record.endpoint), ['ingest-logs']);
+});
+
+test('cada endpoint usa su propio timeout: /jobs 3 s y /ingest-logs 15 s', async (t) => {
+  assert.deepEqual(defaultTimeouts, { jobs: 3000, 'ingest-logs': 15000 });
+  const { baseUrl } = await receiver(t, async (req, res) => {
+    await readJsonBody(req);
+    setTimeout(() => res.writeHead(201).end('{"status":"created"}'), 150);
+  });
+  const { directory } = await repositoryWithFiles(t);
+  const result = await uploadLatestCommit({
+    repositoryDirectory: directory,
+    backendUrl: baseUrl,
+    timeouts: { jobs: 50, 'ingest-logs': 1000 },
+  });
+  assert.equal(result.jobs.status, 'failed');
+  assert.match(result.jobs.error, /timeout/i);
+  assert.deepEqual(result['ingest-logs'], { status: 'sent', httpStatus: 201 });
 });
 
 test('un remoto sin owner/reponame se registra para ambos endpoints sin lanzar', async (t) => {
