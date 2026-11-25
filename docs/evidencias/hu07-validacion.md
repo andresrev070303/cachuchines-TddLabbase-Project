@@ -196,7 +196,7 @@ Esto no es parte de la HU-07, pero se anota para el equipo:
 
 Antes de publicar la rama reescribimos **solo los mensajes** de sus commits, para quitar unas líneas de coautoría. El contenido de los archivos, los títulos, el autor y las fechas no cambiaron: el árbol de cada commit es idéntico al de antes. Igual Git le asigna un SHA nuevo a cada commit.
 
-Los SHA que aparecen arriba en esta evidencia, los que quedaron guardados en Neon y en el repositorio falso, y los que registran `script/commit-history.json` y `script/tdd_log.json` son los **anteriores**. La única excepción es docs(hu07): fix backend commit used in database evidence: commit-history.json ya lo registra con su SHA nuevo (16318e4…), porque el tracker lo guardó después de la reescritura. Ese commit no se envió a Neon. Esta tabla indica a qué commit de la rama publicada corresponde cada uno:
+Los SHA que aparecen arriba en esta evidencia, los que quedaron guardados en Neon y en el repositorio falso, y los que registran `script/commit-history.json` y `script/tdd_log.json` son los **anteriores**. La única excepción es docs(hu07): fix backend commit used in database evidence: commit-history.json y tdd_log.json ya lo registran con su SHA nuevo (16318e4…), porque el tracker lo guardó después de la reescritura. Ese commit no se envió a Neon. Esta tabla indica a qué commit de la rama publicada corresponde cada uno:
 
 | Commit | SHA anterior | SHA nuevo |
 | --- | --- | --- |
