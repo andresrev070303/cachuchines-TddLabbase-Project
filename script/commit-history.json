@@ -1,17 +1,340 @@
 [
   {
-    "sha": "HEAD",
+    "sha": "c32b9a398230ee29ef0f2319340cf7b84544ac07",
     "author": "andresrev070303",
     "commit": {
       "date": "2026-11-24T14:29:24.000Z",
       "message": "feat: agregar avance inicial HU-07 de envio de resultados",
-      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/HEAD"
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/c32b9a398230ee29ef0f2319340cf7b84544ac07"
     },
     "stats": {
       "total": 492,
       "additions": 490,
       "deletions": 2,
       "date": "2026-11-24"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "174138b44f0103ad1820b2028a26c4381bae7fe6",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T01:46:28.000Z",
+      "message": "feat(scripts): save backend error message in error log\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/174138b44f0103ad1820b2028a26c4381bae7fe6"
+    },
+    "stats": {
+      "total": 29,
+      "additions": 27,
+      "deletions": 2,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "b7d0ba4219d80b67822768411d837906e6e10d43",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T01:47:43.000Z",
+      "message": "docs(hu07): add backend error message evidence\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/b7d0ba4219d80b67822768411d837906e6e10d43"
+    },
+    "stats": {
+      "total": 18,
+      "additions": 16,
+      "deletions": 2,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "f2e4e6c3eacaab805f74589c7f4ce3339bbfeed2",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T01:47:49.000Z",
+      "message": "docs(hu07): update setup guide and criteria status\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/f2e4e6c3eacaab805f74589c7f4ce3339bbfeed2"
+    },
+    "stats": {
+      "total": 108,
+      "additions": 65,
+      "deletions": 43,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "ae3886d399e596bec7ac1596a7113ce3dbc96482",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T22:26:28.000Z",
+      "message": "feat(scripts): send test results to jobs and ingest-logs endpoints\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/ae3886d399e596bec7ac1596a7113ce3dbc96482"
+    },
+    "stats": {
+      "total": 494,
+      "additions": 345,
+      "deletions": 149,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "a2e3265055856c95f59bbedf5714d97970fe4185",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T22:27:22.000Z",
+      "message": "test(hu07): run send check against fake repository backend\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/a2e3265055856c95f59bbedf5714d97970fe4185"
+    },
+    "stats": {
+      "total": 0,
+      "additions": 0,
+      "deletions": 0,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "3c2aa7eaa3a34ed5c65e7ddee1ae6aaf42dac224",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T22:27:55.000Z",
+      "message": "test(hu07): run send check with backend down\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/3c2aa7eaa3a34ed5c65e7ddee1ae6aaf42dac224"
+    },
+    "stats": {
+      "total": 0,
+      "additions": 0,
+      "deletions": 0,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "549185a3aa8f6a0295e6eb7ed9c73e1727cce882",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T22:30:50.000Z",
+      "message": "docs(hu07): add fake repository backend evidence\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/549185a3aa8f6a0295e6eb7ed9c73e1727cce882"
+    },
+    "stats": {
+      "total": 136,
+      "additions": 104,
+      "deletions": 32,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "d6d7bc4970988f9dbb8ec42b743acb5919d377ed",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T22:31:48.000Z",
+      "message": "docs(hu07): update contracts, setup guide and criteria status\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/d6d7bc4970988f9dbb8ec42b743acb5919d377ed"
+    },
+    "stats": {
+      "total": 167,
+      "additions": 119,
+      "deletions": 48,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "03833c7ad16b0a69e65cc97cc918fcb19c209157",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T22:45:02.000Z",
+      "message": "test(hu07): run send check against database backend\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/03833c7ad16b0a69e65cc97cc918fcb19c209157"
+    },
+    "stats": {
+      "total": 0,
+      "additions": 0,
+      "deletions": 0,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "ed1b95d62ecdd52affcdd86ab70260117cca1298",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T22:50:59.000Z",
+      "message": "fix(scripts): give ingest-logs a longer timeout\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/ed1b95d62ecdd52affcdd86ab70260117cca1298"
+    },
+    "stats": {
+      "total": 25,
+      "additions": 23,
+      "deletions": 2,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "5a0790945ff138e56150565c488efbcd1931d130",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T22:51:16.000Z",
+      "message": "test(hu07): rerun database send check with longer timeout\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/5a0790945ff138e56150565c488efbcd1931d130"
+    },
+    "stats": {
+      "total": 0,
+      "additions": 0,
+      "deletions": 0,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "5e298b9790c4edb9090359316fdb56f5811173ea",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T22:53:35.000Z",
+      "message": "docs(hu07): add database integration evidence\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/5e298b9790c4edb9090359316fdb56f5811173ea"
+    },
+    "stats": {
+      "total": 89,
+      "additions": 77,
+      "deletions": 12,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "f32ace0934e292ad6ad7f147dfa678bf4082a48f",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T22:54:04.000Z",
+      "message": "docs(hu07): mark all acceptance criteria as done\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/f32ace0934e292ad6ad7f147dfa678bf4082a48f"
+    },
+    "stats": {
+      "total": 22,
+      "additions": 13,
+      "deletions": 9,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "16318e46de7781eeeaceb78a5bd98f871bc34fc3",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T22:54:52.000Z",
+      "message": "docs(hu07): fix backend commit used in database evidence\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/16318e46de7781eeeaceb78a5bd98f871bc34fc3"
+    },
+    "stats": {
+      "total": 2,
+      "additions": 1,
+      "deletions": 1,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "51b8d62b31ec5e88e297a4cdb851c1cfa678bd66",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T23:16:06.000Z",
+      "message": "docs(hu07): add sha mapping after message rewrite",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/51b8d62b31ec5e88e297a4cdb851c1cfa678bd66"
+    },
+    "stats": {
+      "total": 23,
+      "additions": 23,
+      "deletions": 0,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "d88197c0a5c57bfa0c1fe07d313eaa4f987ab631",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T23:20:03.000Z",
+      "message": "docs(hu07): clarify sha note for last rewritten commit",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/d88197c0a5c57bfa0c1fe07d313eaa4f987ab631"
+    },
+    "stats": {
+      "total": 2,
+      "additions": 1,
+      "deletions": 1,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "HEAD",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T23:22:52.000Z",
+      "message": "docs(hu07): mention tdd_log in sha note",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/HEAD"
+    },
+    "stats": {
+      "total": 2,
+      "additions": 1,
+      "deletions": 1,
+      "date": "2026-11-25"
     },
     "coverage": 100,
     "test_count": 1,
