@@ -89,6 +89,21 @@ test('HTTP 503 queda registrado y no lanza una excepción', async (t) => {
   assert.equal(readError(logFile).commitSha, metadata.commitSha);
 });
 
+test('HTTP 400 guarda en el log el motivo que devuelve el backend', async (t) => {
+  const directory = temporaryDirectory(t);
+  const logFile = path.join(directory, 'errors.log');
+  const reason = '{"error":"failedTests es obligatorio"}';
+  const { endpoint } = await receiver(t, (_req, res) => res.writeHead(400, { 'Content-Type': 'application/json' }).end(reason));
+  const result = await sendTestResults(payload, { endpoint, errorLogPath: logFile });
+  assert.equal(result.status, 'failed');
+  assert.equal(readError(logFile).error, `HTTP 400: ${reason}`);
+
+  const longLog = path.join(directory, 'long.log');
+  const { endpoint: longEndpoint } = await receiver(t, (_req, res) => res.writeHead(400).end('x'.repeat(800)));
+  await sendTestResults(payload, { endpoint: longEndpoint, errorLogPath: longLog });
+  assert.equal(readError(longLog).error, `HTTP 400: ${'x'.repeat(500)}`);
+});
+
 test('backend sin conexión queda registrado y permite continuar', async (t) => {
   const logFile = path.join(temporaryDirectory(t), 'errors.log');
   const { server, endpoint } = await receiver(t, (_req, res) => res.end());

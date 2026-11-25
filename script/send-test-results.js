@@ -49,6 +49,15 @@ function recordFailure(error, errorLogPath, commitSha = null) {
   return { status: 'failed', error: error.message };
 }
 
+// El backend explica en el cuerpo qué campo falló; se guarda recortado para el log.
+async function readErrorDetail(response) {
+  try {
+    return (await response.text()).replace(/\s+/g, ' ').trim().slice(0, 500);
+  } catch {
+    return '';
+  }
+}
+
 export async function sendTestResults(payload, {
   endpoint = process.env.TDDLAB_RESULTS_ENDPOINT,
   timeoutMs = 3000,
@@ -66,10 +75,11 @@ export async function sendTestResults(payload, {
       signal: AbortSignal.timeout(timeoutMs),
       redirect: 'error',
     });
-    await response.body?.cancel();
     if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
+      const detail = await readErrorDetail(response);
+      throw new Error(detail ? `HTTP ${response.status}: ${detail}` : `HTTP ${response.status}`);
     }
+    await response.body?.cancel();
     console.log(`[HU-07] Resultados enviados (HTTP ${response.status}).`);
     return { status: 'sent', httpStatus: response.status };
   } catch (error) {
