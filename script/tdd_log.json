@@ -60,9 +60,15 @@
     "testId": 9
   },
   {
-    "commitId": "HEAD",
+    "commitId": "ed1b95d62ecdd52affcdd86ab70260117cca1298",
     "commitName": "fix(scripts): give ingest-logs a longer timeout\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
     "commitTimestamp": 1795647060961,
     "testId": 10
+  },
+  {
+    "commitId": "HEAD",
+    "commitName": "test(hu07): rerun database send check with longer timeout\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+    "commitTimestamp": 1795647078176,
+    "testId": 11
   }
 ]
