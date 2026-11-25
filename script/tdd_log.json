@@ -78,9 +78,15 @@
     "testId": 12
   },
   {
-    "commitId": "HEAD",
+    "commitId": "f32ace0934e292ad6ad7f147dfa678bf4082a48f",
     "commitName": "docs(hu07): mark all acceptance criteria as done\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
     "commitTimestamp": 1795647245410,
     "testId": 13
+  },
+  {
+    "commitId": "HEAD",
+    "commitName": "docs(hu07): fix backend commit used in database evidence\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+    "commitTimestamp": 1795647293526,
+    "testId": 14
   }
 ]

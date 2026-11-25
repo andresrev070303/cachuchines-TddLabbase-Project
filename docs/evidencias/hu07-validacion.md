@@ -117,7 +117,7 @@ Con el backend detenido se hizo el commit `test(hu07): run send check with backe
 
 ## Integración con la base de datos
 
-Semana 2 del criterio 6. Mismo backend (`origin/Cachuchines/FrontedyBackend`, commit `30685`), levantado **sin** `TDD_JOBS_REPOSITORY`. La conexión a Neon la lee el backend de su `server/.env`, que no se abrió ni se copió.
+Semana 2 del criterio 6. Backend en la rama `feat/hu-04-tdd-db-schema` (commit `9e842`). Esa rama es `30685` más el script del esquema `server/db/tdd-schema.sql`, sin cambios en el código del backend. Se levantó **sin** `TDD_JOBS_REPOSITORY`. La conexión a Neon la lee el backend de su `server/.env`, que no se abrió ni se copió.
 
 ### Primer intento: el esquema no existía
 
