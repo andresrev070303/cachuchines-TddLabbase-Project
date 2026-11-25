@@ -84,9 +84,15 @@
     "testId": 13
   },
   {
-    "commitId": "HEAD",
+    "commitId": "16318e46de7781eeeaceb78a5bd98f871bc34fc3",
     "commitName": "docs(hu07): fix backend commit used in database evidence\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
     "commitTimestamp": 1795647293526,
     "testId": 14
+  },
+  {
+    "commitId": "HEAD",
+    "commitName": "docs(hu07): add sha mapping after message rewrite",
+    "commitTimestamp": 1795648567019,
+    "testId": 15
   }
 ]

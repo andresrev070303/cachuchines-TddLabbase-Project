@@ -192,6 +192,29 @@ Esto no es parte de la HU-07, pero se anota para el equipo:
 - **`/ingest-logs` tarda más mientras más crece el historial.** Tardó 4,7 a 6,6 s con 10 commits y 8,4 s con 12, porque reprocesa todo lo que recibe. Con el ritmo medido, va a pasar los 15 s en unas cuantas decenas de commits. El script igual no corta el commit, pero lo anotaría como timeout.
 - **Conclusiones de los jobs creados por `/ingest-logs`.** Al procesar el historial, el backend crea jobs para los commits que no tenían uno, y les pone `failure` ("Commits con ultima ejecucion de pruebas rojo"), aunque `commit-history.json` y `/get-commits` dicen `success`. En la BD hay 2 jobs con `success` (los que mandó `/jobs`) y 10 con `failure`. Corresponde revisarlo en la HU-03.
 
+## Nota sobre los SHA
+
+Antes de publicar la rama reescribimos **solo los mensajes** de sus commits, para quitar unas líneas de coautoría. El contenido de los archivos, los títulos, el autor y las fechas no cambiaron: el árbol de cada commit es idéntico al de antes. Igual Git le asigna un SHA nuevo a cada commit.
+
+Los SHA que aparecen arriba en esta evidencia, los que quedaron guardados en Neon y en el repositorio falso, y los que registran `script/commit-history.json` y `script/tdd_log.json` son los **anteriores**. Esta tabla indica a qué commit de la rama publicada corresponde cada uno:
+
+| Commit | SHA anterior | SHA nuevo |
+| --- | --- | --- |
+| `feat(scripts): save backend error message in error log` | `174138b44f0103ad1820b2028a26c4381bae7fe6` | `1a4f0254ff478141cc95e684176197714ab87362` |
+| `docs(hu07): add backend error message evidence` | `b7d0ba4219d80b67822768411d837906e6e10d43` | `9b877301d34c776fd10d06fa3b4649fe5ee4f20f` |
+| `docs(hu07): update setup guide and criteria status` | `f2e4e6c3eacaab805f74589c7f4ce3339bbfeed2` | `066b847f6a59a5abb70e69bd749c5729534caf18` |
+| `feat(scripts): send test results to jobs and ingest-logs endpoints` | `ae3886d399e596bec7ac1596a7113ce3dbc96482` | `f356321f8498c5deab4e933162d7d452ce6b05b1` |
+| `test(hu07): run send check against fake repository backend` | `a2e3265055856c95f59bbedf5714d97970fe4185` | `b123122bfa00d5de79bb2de397677bd8c0ad4faf` |
+| `test(hu07): run send check with backend down` | `3c2aa7eaa3a34ed5c65e7ddee1ae6aaf42dac224` | `2dd178689bab089ec0a1ed85253187476c5d0af0` |
+| `docs(hu07): add fake repository backend evidence` | `549185a3aa8f6a0295e6eb7ed9c73e1727cce882` | `f9ee3b6d8dcd75a597a825a4c276c7998bdcdc0a` |
+| `docs(hu07): update contracts, setup guide and criteria status` | `d6d7bc4970988f9dbb8ec42b743acb5919d377ed` | `dc8bf71d7b3dc140c60889886fcd368608520ef1` |
+| `test(hu07): run send check against database backend` | `03833c7ad16b0a69e65cc97cc918fcb19c209157` | `ee3b572b827f650af2dacc2e0d613826a61b7643` |
+| `fix(scripts): give ingest-logs a longer timeout` | `ed1b95d62ecdd52affcdd86ab70260117cca1298` | `0cc9dc5015450fc76e1e566271e5a7f3c06a7336` |
+| `test(hu07): rerun database send check with longer timeout` | `5a0790945ff138e56150565c488efbcd1931d130` | `65244effb86bcf864edc7b225f06d2598b09af10` |
+| `docs(hu07): add database integration evidence` | `5e298b9790c4edb9090359316fdb56f5811173ea` | `717c2d02f238a692395a6731ed02374371ced04f` |
+| `docs(hu07): mark all acceptance criteria as done` | `f32ace0934e292ad6ad7f147dfa678bf4082a48f` | `63e85340777dbd1c056dcde7d15ea5ba0a8b817d` |
+| `docs(hu07): fix backend commit used in database evidence` | `02442c8234dd82c2df3b46d4034388e2be690e52` | `16318e46de7781eeeaceb78a5bd98f871bc34fc3` |
+
 ## Reproducción y límites
 
 - Pruebas locales: `npm run test:hu07` desde la raíz del proyecto. Los SHA y los puertos cambian en cada ejecución.
