@@ -66,9 +66,15 @@
     "testId": 10
   },
   {
-    "commitId": "HEAD",
+    "commitId": "5a0790945ff138e56150565c488efbcd1931d130",
     "commitName": "test(hu07): rerun database send check with longer timeout\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
     "commitTimestamp": 1795647078176,
     "testId": 11
+  },
+  {
+    "commitId": "HEAD",
+    "commitName": "docs(hu07): add database integration evidence\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+    "commitTimestamp": 1795647217053,
+    "testId": 12
   }
 ]

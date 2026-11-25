@@ -1,16 +1,16 @@
 # Evidencia de HU-07
 
-Primera versión: 24 de noviembre de 2026 (receptor local). Actualizada: 25 de noviembre de 2026 (contratos finales y backend con repositorio falso). Entorno: Windows, Node.js v22.15.0 y npm 10.9.2.
+Primera versión: 24 de noviembre de 2026 (receptor local). Actualizada: 25 de noviembre de 2026 (contratos finales, backend con repositorio falso y base de datos). Entorno: Windows, Node.js v22.15.0 y npm 10.9.2.
 
 ## Verificaciones locales
 
 | Comando | Resultado observado |
 | --- | --- |
-| `npm run test:hu07` | 19 pruebas aprobadas, 0 fallidas. |
+| `npm run test:hu07` | 20 pruebas aprobadas, 0 fallidas. |
 | `npx jest` | 1 suite, 1 prueba aprobada: suma de dos números. |
 | `npx eslint script/send-test-results.js` | Sin errores ni advertencias. |
 
-Las 19 pruebas de HU-07 cubren:
+Las 20 pruebas de HU-07 cubren:
 
 - JSON de `/jobs` con exactamente `sha`, `owner`, `reponame`, `conclusion` y `branch`, incluido el cambio de `neutral` a `skipped`.
 - Extracción de owner y reponame desde remotos https (con y sin `.git`) y ssh.
@@ -20,6 +20,7 @@ Las 19 pruebas de HU-07 cubren:
 - `/jobs` con HTTP 201 (registrado), HTTP 200 `duplicate` (no es error) y HTTP 409 (error con motivo).
 - HTTP 503 y HTTP 400 con motivo, sin conexión, timeout y log que no se puede escribir.
 - Envíos independientes: un `tdd_log.json` corrupto solo bloquea `/ingest-logs`; un remoto inválido se registra para los dos endpoints.
+- Un timeout por endpoint: 3 s para `/jobs` y 15 s para `/ingest-logs`.
 - El hook real enviando a los dos endpoints; el hook con `/ingest-logs` caído (`/jobs` se envía igual); el hook con el backend apagado.
 
 ### JSON recibido por el receptor local
@@ -116,20 +117,84 @@ Con el backend detenido se hizo el commit `test(hu07): run send check with backe
 
 ## Integración con la base de datos
 
-**Pendiente.** Es la semana 2 del criterio 6.
+Semana 2 del criterio 6. Mismo backend (`origin/Cachuchines/FrontedyBackend`, commit `30685`), levantado **sin** `TDD_JOBS_REPOSITORY`. La conexión a Neon la lee el backend de su `server/.env`, que no se abrió ni se copió.
 
-El 25 de noviembre de 2026 se levantó el backend sin `TDD_JOBS_REPOSITORY`, con la conexión de `server/.env`. El backend se conecta a Neon, pero la base todavía no tiene el esquema: `relation "repository" does not exist` y `relation "commitstable" does not exist`. Por eso `GET /jobs`, `GET /get-commits` y `POST /ingest-logs` responden HTTP 500. El repositorio del backend tampoco tiene un script que cree las tablas que usa (`jobstable`, `commit_timeline`, `project`, `repository`, `"commit"`, `test_execution` y `commitstable`).
+### Primer intento: el esquema no existía
 
-No se hizo el commit de prueba contra la BD. Queda pendiente de que el esquema exista en Neon (**HU-04**). Cuando esté, en esta misma rama se repite la prueba y se agrega aquí:
+En el primer intento, la base de Neon todavía no tenía tablas (`relation "repository" does not exist`, `relation "commitstable" does not exist`), así que `GET /jobs`, `GET /get-commits` y `POST /ingest-logs` respondían HTTP 500. Cuando el equipo creó el esquema (HU-04), los dos GET respondieron HTTP 200 con `[]` y se hizo la prueba.
 
-- `/jobs` con 201 y el SHA en el GET con la conclusión correcta.
-- `/ingest-logs` con éxito y el commit en `GET /get-commits`.
-- La comparación de `test_count`, `failed_tests`, `coverage` y `conclusion` contra `commit-history.json`.
-- El reenvío sin duplicados.
+### Commit 1: `test(hu07): run send check against database backend`
+
+SHA: `03833c7ad16b0a69e65cc97cc918fcb19c209157`. Todavía con 3 s de timeout para los dos endpoints.
+
+```text
+[HU-07] jobs: Resultado registrado (HTTP 201).
+[HU-07] ingest-logs: no se envió: The operation was aborted due to timeout. Se conserva el respaldo local.
+```
+
+`/jobs` registró el commit con `conclusion: "success"`. `/ingest-logs` sí guardó los datos: `GET /get-commits` devolvió los 10 commits del historial, incluido `03833…`. Pero respondió después de los 3 s y el script lo anotó como error. Medido aparte con el mismo payload, `/ingest-logs` tardó entre 4,7 y 6,6 s. Por eso se subió el timeout de `/ingest-logs` a 15 s, y `/jobs` quedó en 3 s (commit `fix(scripts): give ingest-logs a longer timeout`).
+
+### Commit 2: `test(hu07): rerun database send check with longer timeout`
+
+SHA definitivo (`git rev-parse HEAD`): `5a0790945ff138e56150565c488efbcd1931d130`
+
+```text
+[HU-07] jobs: no se envió: The operation was aborted due to timeout. Se conserva el respaldo local.
+[HU-07] ingest-logs: Logs enviados (HTTP 200).
+```
+
+Esta vez `/ingest-logs` respondió dentro del límite. `/jobs` pasó sus 3 s, pero el job **sí quedó guardado** (ver el GET más abajo). Medido aparte, `/jobs` tardó 1,8 s en la primera llamada y 0,4 s en las siguientes, incluso mientras corría `/ingest-logs`. Lo más probable es que la conexión a Neon estuviera fría después de unos minutos sin uso. El commit terminó normal en los dos casos.
+
+### Consulta de `/jobs`
+
+`GET /jobs?owner=andresrev070303&repoName=cachuchines-TddLabbase-Project`:
+
+```json
+{"id":12,"sha":"5a0790945ff138e56150565c488efbcd1931d130","owner":"andresrev070303","reponame":"cachuchines-TddLabbase-Project","conclusion":"success","branch":null}
+```
+
+`branch` sale `null` porque el backend todavía no lo guarda en `/jobs` (HU-03).
+
+### Consulta de `/get-commits`
+
+`GET /get-commits?owner=andresrev070303&repoName=cachuchines-TddLabbase-Project` devolvió los 12 commits del historial y ninguno con el marcador `HEAD`. El commit de la prueba aparece con su SHA real:
+
+```json
+{"sha":"5a0790945ff138e56150565c488efbcd1931d130","test_count":"1","failed_tests":0,"coverage":"100","conclusion":"success","branch":"feat/hu-07-backend-results-integration","message":"test(hu07): rerun database send check with longer timeout"}
+```
+
+### Comparación campo por campo
+
+| Campo | `commit-history.json` (entrada `HEAD`) | `/get-commits` (SHA `5a07909…`) | Resultado |
+| --- | --- | --- | --- |
+| `test_count` | `1` | `"1"` | Igual (el backend lo devuelve como texto) |
+| `failed_tests` | `0` | `0` | Igual |
+| `coverage` | `100` | `"100"` | Igual (el backend lo devuelve como texto) |
+| `conclusion` | `"success"` | `"success"` | Igual |
+
+Los otros 11 commits del historial también coinciden en los cuatro campos.
+
+### Reenvío del mismo commit
+
+`npm run send:test-results`:
+
+```text
+[HU-07] jobs: Ya estaba registrado (HTTP 200).
+[HU-07] ingest-logs: Logs enviados (HTTP 200).
+```
+
+`backend-errors.log` quedó vacío. Después del reenvío seguía habiendo 12 jobs y 12 commits, sin ningún SHA repetido.
+
+### Lo que se observó del backend
+
+Esto no es parte de la HU-07, pero se anota para el equipo:
+
+- **`/ingest-logs` tarda más mientras más crece el historial.** Tardó 4,7 a 6,6 s con 10 commits y 8,4 s con 12, porque reprocesa todo lo que recibe. Con el ritmo medido, va a pasar los 15 s en unas cuantas decenas de commits. El script igual no corta el commit, pero lo anotaría como timeout.
+- **Conclusiones de los jobs creados por `/ingest-logs`.** Al procesar el historial, el backend crea jobs para los commits que no tenían uno, y les pone `failure` ("Commits con ultima ejecucion de pruebas rojo"), aunque `commit-history.json` y `/get-commits` dicen `success`. En la BD hay 2 jobs con `success` (los que mandó `/jobs`) y 10 con `failure`. Corresponde revisarlo en la HU-03.
 
 ## Reproducción y límites
 
 - Pruebas locales: `npm run test:hu07` desde la raíz del proyecto. Los SHA y los puertos cambian en cada ejecución.
-- Backend con repositorio falso: ver "Configuración y uso" en [la guía de HU-07](../hu07-envio-resultados.md).
+- Backend en modo falso y en modo BD: ver "Configuración y uso" en [la guía de HU-07](../hu07-envio-resultados.md).
 
-Esta evidencia demuestra el emisor, su integración con el hook y el registro en `/jobs` del backend con repositorio falso. Todavía no demuestra que los datos se guarden en la BD.
+Esta evidencia demuestra el emisor, su integración con el hook, el registro en `/jobs` con el repositorio falso y el guardado de `/jobs` y `/ingest-logs` en la base de datos de Neon.
