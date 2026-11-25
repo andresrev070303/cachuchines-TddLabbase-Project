@@ -24,9 +24,15 @@
     "testId": 3
   },
   {
-    "commitId": "HEAD",
+    "commitId": "ae3886d399e596bec7ac1596a7113ce3dbc96482",
     "commitName": "feat(scripts): send test results to jobs and ingest-logs endpoints\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
     "commitTimestamp": 1795645589531,
     "testId": 4
+  },
+  {
+    "commitId": "HEAD",
+    "commitName": "test(hu07): run send check against fake repository backend\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+    "commitTimestamp": 1795645643217,
+    "testId": 5
   }
 ]
