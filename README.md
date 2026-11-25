@@ -23,7 +23,7 @@ npm run test-once
 
 ### HU-07: envío de resultados al backend
 
-Después de cada commit, el hook manda el resultado a `/jobs` y los logs completos a `/ingest-logs` del backend de TDDLab, y conserva los respaldos JSON de siempre. La URL base se configura con `TDDLAB_BACKEND_URL` (por ejemplo `http://localhost:3000/api/TDDCycles`). Sin esa variable el envío queda desactivado. Ya se probó contra el backend con repositorio falso; la prueba con la base de datos está pendiente del esquema en Neon (HU-04).
+Después de cada commit, el hook manda el resultado a `/jobs` y los logs completos a `/ingest-logs` del backend de TDDLab, y conserva los respaldos JSON de siempre. La URL base se configura con `TDDLAB_BACKEND_URL` (por ejemplo `http://localhost:3000/api/TDDCycles`). Sin esa variable el envío queda desactivado. Ya se probó contra el backend con repositorio falso y contra la base de datos en Neon.
 
 Pruebas locales sin backend externo: `npm run test:hu07`.
 

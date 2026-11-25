@@ -37,9 +37,9 @@ git commit
   -> amend del commit (igual que antes)
   -> send-test-results.js
        -> lee SHA definitivo, rama y owner/repo de Git
-       -> en paralelo (cada uno con 3 s de timeout):
-            -> POST {base}/jobs         (resultado del commit)
-            -> POST {base}/ingest-logs  (historial y log TDD completos)
+       -> en paralelo, cada uno con su timeout:
+            -> POST {base}/jobs         (resultado del commit, 3 s)
+            -> POST {base}/ingest-logs  (historial y log TDD completos, 15 s)
        -> si uno falla: aviso en consola y línea en backend-errors.log
           con el endpoint; el otro se envía igual y el commit termina
 ```
@@ -151,7 +151,7 @@ Remove-Item Env:TDD_JOBS_REPOSITORY -ErrorAction SilentlyContinue; npm run dev
 
 Con los hooks de Husky instalados (`npm install`), cada commit llama al emisor automáticamente. También se puede llamar a mano con `npm run send:test-results`, que manda el commit actual si existe su registro `HEAD`. Este comando no vuelve a correr Jest ni reenvía commits anteriores. Si el commit ya estaba registrado, `/jobs` responde `duplicate` y no pasa nada.
 
-Los dos POST salen en paralelo con `Promise.allSettled`, y cada uno espera como máximo **3 segundos**. Un fallo en uno no impide el otro. Se capturan los errores HTTP 4xx/5xx, los errores de red, el timeout y los errores al leer los JSON o al consultar Git.
+Los dos POST salen en paralelo con `Promise.allSettled`. `/jobs` espera como máximo **3 segundos** y `/ingest-logs` **15 segundos**. A `/ingest-logs` le dimos más tiempo porque guarda todo el historial en la BD: en la prueba con Neon tardó entre 4,7 y 8,4 s. Un fallo en uno no impide el otro. Se capturan los errores HTTP 4xx/5xx, los errores de red, el timeout y los errores al leer los JSON o al consultar Git.
 
 Cada error se guarda como una línea JSON en `script/backend-errors.log`, con la fecha, el endpoint (`jobs` o `ingest-logs`), el SHA (si se conoce) y el mensaje. Este archivo está en `.gitignore`. Cuando el backend manda un cuerpo con el error, ese texto se agrega al mensaje recortado a 500 caracteres. Por ejemplo:
 
@@ -177,7 +177,7 @@ Las pruebas de integración crean repositorios Git temporales con un usuario y u
 
 No hacen push y borran los repositorios temporales al final.
 
-Resultado actual: **19/19 pruebas de HU-07 y 1/1 prueba de Jest aprobadas**, y el emisor pasa ESLint. La prueba contra el backend real con repositorio falso también está hecha. Los detalles están en la [evidencia de validación](evidencias/hu07-validacion.md).
+Resultado actual: **20/20 pruebas de HU-07 y 1/1 prueba de Jest aprobadas**, y el emisor pasa ESLint. También están hechas las pruebas contra el backend real, con repositorio falso y con la base de datos. Los detalles están en la [evidencia de validación](evidencias/hu07-validacion.md).
 
 ## Estado de los criterios
 
@@ -188,11 +188,15 @@ Resultado actual: **19/19 pruebas de HU-07 y 1/1 prueba de Jest aprobadas**, y e
 | 3 | La URL sale de una variable de configuración | Cumplido | `TDDLAB_BACKEND_URL`. Sin la variable el envío se desactiva ([pruebas locales](evidencias/hu07-validacion.md#verificaciones-locales)). |
 | 4 | Si el envío falla no se corta el flujo y queda registrado el error | Cumplido | Commit real con el backend apagado y con `/ingest-logs` fallando; pruebas con 400, 409, 503, sin conexión y timeout. El `duplicate` no cuenta como error ([evidencia](evidencias/hu07-validacion.md#backend-apagado)). |
 | 5 | Se sigue escribiendo el archivo de texto como respaldo | Cumplido | `tdd_log.json` y `commit-history.json` se siguen guardando en cada commit ([pruebas locales](evidencias/hu07-validacion.md#verificaciones-locales)). |
-| 6 | Semana 1 contra el backend con repositorio falso; semana 2 contra la BD | Parcial | **Semana 1 cumplida** ([evidencia](evidencias/hu07-validacion.md#integración-con-el-backend--repositorio-falso)). **Semana 2 pendiente:** la BD de Neon todavía no tiene el esquema (tablas `repository`, `commitstable`, `jobstable`, etc.). Depende de la **HU-04** ([detalle](evidencias/hu07-validacion.md#integración-con-la-base-de-datos)). |
+| 6 | Semana 1 contra el backend con repositorio falso; semana 2 contra la BD | Cumplido | Semana 1: `/jobs` con 201 y `duplicate` en el reenvío ([evidencia](evidencias/hu07-validacion.md#integración-con-el-backend--repositorio-falso)). Semana 2: `/jobs` e `/ingest-logs` guardados en Neon, commit visible en `/get-commits` con los mismos campos que `commit-history.json` y reenvío sin duplicados ([evidencia](evidencias/hu07-validacion.md#integración-con-la-base-de-datos)). |
 | 7 | Cambios documentados en `docs/` | Cumplido | Este documento y `docs/evidencias/hu07-validacion.md`. |
 
-## Lo que falta
+## Observaciones para el backend
 
-- Repetir la prueba contra la base de datos cuando el esquema exista en Neon (HU-04): `/jobs` con 201, `/ingest-logs` con éxito, el commit visible en `/get-commits` con los mismos `test_count`, `failed_tests`, `coverage` y `conclusion`, y un reenvío sin duplicados.
+Esto no es parte de la HU-07, pero lo vimos en la prueba con la BD (detalle en la [evidencia](evidencias/hu07-validacion.md#lo-que-se-observó-del-backend)):
+
+- `/ingest-logs` tarda más mientras más crece el historial, porque reprocesa todo lo que recibe. Si en algún momento pasa los 15 s, el script lo anota como timeout, pero el commit no se corta.
+- La primera consulta a Neon después de un rato sin uso puede pasar los 3 s de `/jobs`. El job igual se guarda, y el reenvío responde `duplicate`.
+- Los jobs que crea `/ingest-logs` para commits anteriores quedan con `failure`, aunque el historial dice `success`. Le toca revisarlo a la HU-03.
 
 No implementamos reintentos, cola de pendientes ni migración de historiales. Si un envío falla, el resultado se queda en los respaldos y en el log, pero no se reenvía solo. Igual se puede mandar a mano con `npm run send:test-results` mientras el commit siga siendo `HEAD`.
