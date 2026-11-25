@@ -6,11 +6,11 @@ Fecha: 24 de noviembre de 2026. Entorno: Windows, Node.js v22.19.0 y npm 10.9.3.
 
 | Comando | Resultado observado |
 | --- | --- |
-| `npm run test:hu07` | 10 pruebas aprobadas, 0 fallidas. |
+| `npm run test:hu07` | 11 pruebas aprobadas, 0 fallidas. |
 | `npx jest --runInBand --verbose` | 1 suite, 1 prueba aprobada: suma de dos números. |
 | `npx eslint script/send-test-results.js` | Sin errores ni advertencias. |
 
-Las 10 pruebas de HU-07 verificaron: construcción del JSON; desactivación sin configuración; POST con HTTP 201; error HTTP 503; backend sin conexión; timeout; historial corrupto; fallo de escritura del log; hook con envío exitoso; hook con backend caído.
+Las 11 pruebas de HU-07 verificaron: construcción del JSON; desactivación sin configuración; POST con HTTP 201; error HTTP 503; error HTTP 400 con motivo en el log; backend sin conexión; timeout; historial corrupto; fallo de escritura del log; hook con envío exitoso; hook con backend caído.
 
 ## JSON recibido realmente por el receptor falso
 
@@ -41,6 +41,20 @@ La segunda prueba de integración configuró el receptor para responder HTTP 503
 - El respaldo `tdd_log.json` seguía dentro del commit y el historial de métricas se conservaba.
 
 Las pruebas adicionales comprobaron desconexión y timeout de forma aislada, sin lanzar excepciones hacia el flujo llamante.
+
+## Motivo del error que devuelve el backend
+
+Se configuró el receptor para responder HTTP 400 con el cuerpo `{"error":"failedTests es obligatorio"}`. La línea guardada en el log fue:
+
+```text
+HTTP 400: {"error":"failedTests es obligatorio"}
+```
+
+Con un cuerpo de 800 caracteres, el log guardó solo los primeros 500. En los dos casos el envío devolvió `failed` sin lanzar una excepción.
+
+## Integración con el backend real
+
+Pendiente. La prueba contra el backend con repositorio falso (semana 1, HU-03) y contra la base de datos (semana 2, HU-04) se agregará aquí cuando estén disponibles los endpoints.
 
 ## Reproducción y límites
 

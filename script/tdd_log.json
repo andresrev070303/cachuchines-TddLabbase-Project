@@ -6,9 +6,15 @@
     "testId": 0
   },
   {
-    "commitId": "HEAD",
+    "commitId": "174138b44f0103ad1820b2028a26c4381bae7fe6",
     "commitName": "feat(scripts): save backend error message in error log\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
     "commitTimestamp": 1795571189829,
     "testId": 1
+  },
+  {
+    "commitId": "HEAD",
+    "commitName": "docs(hu07): add backend error message evidence\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+    "commitTimestamp": 1795571264483,
+    "testId": 2
   }
 ]
