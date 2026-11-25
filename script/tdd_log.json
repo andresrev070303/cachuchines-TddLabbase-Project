@@ -90,9 +90,15 @@
     "testId": 14
   },
   {
-    "commitId": "HEAD",
+    "commitId": "51b8d62b31ec5e88e297a4cdb851c1cfa678bd66",
     "commitName": "docs(hu07): add sha mapping after message rewrite",
     "commitTimestamp": 1795648567019,
     "testId": 15
+  },
+  {
+    "commitId": "HEAD",
+    "commitName": "docs(hu07): clarify sha note for last rewritten commit",
+    "commitTimestamp": 1795648804889,
+    "testId": 16
   }
 ]
