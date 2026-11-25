@@ -38,17 +38,36 @@
     "conclusion": "success"
   },
   {
-    "sha": "HEAD",
+    "sha": "b7d0ba4219d80b67822768411d837906e6e10d43",
     "author": "ciriarte-dev",
     "commit": {
       "date": "2026-11-25T01:47:43.000Z",
       "message": "docs(hu07): add backend error message evidence\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/HEAD"
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/b7d0ba4219d80b67822768411d837906e6e10d43"
     },
     "stats": {
       "total": 18,
       "additions": 16,
       "deletions": 2,
+      "date": "2026-11-25"
+    },
+    "coverage": 100,
+    "test_count": 1,
+    "failed_tests": 0,
+    "conclusion": "success"
+  },
+  {
+    "sha": "HEAD",
+    "author": "ciriarte-dev",
+    "commit": {
+      "date": "2026-11-25T01:47:49.000Z",
+      "message": "docs(hu07): update setup guide and criteria status\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "url": "https://github.com/andresrev070303/cachuchines-TddLabbase-Project/commit/HEAD"
+    },
+    "stats": {
+      "total": 108,
+      "additions": 65,
+      "deletions": 43,
       "date": "2026-11-25"
     },
     "coverage": 100,

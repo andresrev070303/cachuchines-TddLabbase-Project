@@ -12,9 +12,15 @@
     "testId": 1
   },
   {
-    "commitId": "HEAD",
+    "commitId": "b7d0ba4219d80b67822768411d837906e6e10d43",
     "commitName": "docs(hu07): add backend error message evidence\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
     "commitTimestamp": 1795571264483,
     "testId": 2
+  },
+  {
+    "commitId": "HEAD",
+    "commitName": "docs(hu07): update setup guide and criteria status\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+    "commitTimestamp": 1795571270045,
+    "testId": 3
   }
 ]

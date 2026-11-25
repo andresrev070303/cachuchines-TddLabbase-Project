@@ -1,43 +1,45 @@
-# HU-07: primer incremento de envío de resultados
+# HU-07: envío de resultados de tests al backend
 
-Responsable: Andres. Fecha: 24 de noviembre de 2026.
+Responsable: Carlos. Apoyo: Andrés.
 
-## Alcance del avance
+## Qué hace este cambio
 
-Este incremento representa un avance inicial estimado del **30% de la HU completa**. La estimación corresponde a la preparación del cliente y su validación local; no certifica integración con el backend del equipo ni almacenamiento en base de datos.
+Después de cada commit, el script toma el resumen de tests de ese commit y lo manda por HTTP al endpoint de registro del backend. Así el avance del estudiante queda guardado en el backend y no solo en un archivo dentro de su repositorio.
 
-Se implementó un emisor HTTP con configuración por variable de entorno, conexión al hook de commit, tolerancia a errores y pruebas con un receptor falso. El contrato JSON sigue siendo **provisional**, identificado como `hu07-draft-1`.
+La URL del endpoint se configura con una variable de entorno. Si el envío falla, el commit termina igual y el error queda anotado en un log. Los archivos JSON de siempre se siguen escribiendo como respaldo.
 
-## Continuación del análisis de scripts y logs
+## Antecedente: análisis de scripts y logs
 
-En esta copia del proyecto no existía `docs/`. Se crea esta carpeta para documentar el siguiente paso del flujo ya analizado:
+Este documento sigue el análisis de scripts y logs que ya hicimos en el repositorio del equipo (`docs/02-analisis-scripts-logs.md`). Como en esta copia del proyecto no había carpeta `docs/`, la creamos para documentar el paso nuevo del flujo.
 
-| Componente existente | Responsabilidad |
+Estos son los scripts que ya existían:
+
+| Componente existente | Qué hace |
 | --- | --- |
-| `script/tddScript.js` | Ejecuta Jest y agrega ejecuciones a `script/tdd_log.json`. |
+| `script/tddScript.js` | Corre Jest y agrega cada ejecución a `script/tdd_log.json`. |
 | `script/commitScript.js` | Agrega un marcador de commit al log. |
-| `script/commit-tracker.js` | Reejecuta Jest con cobertura y escribe métricas en `script/commit-history.json`. |
-| `.husky/post-commit` | Agrega ambos JSON al commit mediante `git commit --amend --no-edit`. |
+| `script/commit-tracker.js` | Vuelve a correr Jest con cobertura y guarda las métricas en `script/commit-history.json`. |
+| `.husky/post-commit` | Mete los dos JSON al commit con `git commit --amend --no-edit`. |
 
-Los respaldos actuales son archivos de texto en formato JSON. Se mantienen ambos y no se altera su estructura. Tampoco se modifica el comportamiento de `npm test`.
+No cambiamos la estructura de esos archivos ni el comportamiento de `npm test`.
 
-El nuevo paso se agrega **después del amend**, porque esa operación cambia el SHA del commit. El emisor lee el registro `HEAD` del historial, obtiene el SHA definitivo desde Git y envía ese SHA en el JSON sin reemplazar el marcador del archivo original.
+El envío se hace **después del amend**, porque el amend cambia el SHA del commit. El script lee el registro `HEAD` de `commit-history.json`, le pide a Git el SHA definitivo y manda ese SHA en el JSON. El archivo de respaldo no se modifica.
 
 ```text
 git commit
-  -> generadores actuales de logs y métricas
+  -> generadores de logs y métricas (igual que antes)
   -> respaldo en tdd_log.json y commit-history.json
-  -> amend del commit, como antes
+  -> amend del commit (igual que antes)
   -> send-test-results.js
        -> POST al endpoint configurado
-       -> si falla: advertencia y backend-errors.log; el commit termina
+       -> si falla: aviso en consola y línea en backend-errors.log; el commit termina
 ```
 
-Solo se envía el resumen de pruebas que produce el tracker por commit. Las ejecuciones intermedias del ciclo rojo-verde de `tdd_log.json` no se envían en este incremento.
+Solo se manda el resumen por commit que arma el tracker. Las ejecuciones intermedias del ciclo rojo-verde que están en `tdd_log.json` no se envían.
 
-## Contrato provisional
+## Contrato (todavía provisional)
 
-No se encontró un contrato de registro definido en este repositorio. Se propone este formato para probar el cliente; debe validarse con el equipo de backend antes de dar el criterio por completado:
+El contrato de la HU-01 todavía no está cerrado, así que el JSON sigue siendo provisional y lo marcamos con `schemaVersion: "hu07-draft-1"`. Cuando el contrato esté listo, se ajusta `buildTestResultPayload` y se reemplaza esta sección por el ejemplo final.
 
 ```json
 {
@@ -53,53 +55,73 @@ No se encontró un contrato de registro definido en este repositorio. Se propone
 }
 ```
 
-`commitSha` es el SHA real posterior al amend; `branch` es `null` si Git está en detached HEAD. `commitTimestamp` proviene de la fecha del commit registrada por el tracker, no de la hora exacta de ejecución de Jest. Los conteos, la cobertura y la conclusión se toman del historial existente. No se calcula un número de pruebas aprobadas restando fallidas porque puede haber pruebas omitidas. La cobertura expresa un porcentaje entre 0 y 100.
+- `commitSha` es el SHA real después del amend.
+- `branch` es `null` si Git está en detached HEAD.
+- `commitTimestamp` sale de la fecha del commit que guarda el tracker, no de la hora en que corrió Jest.
+- Los conteos, la cobertura y la conclusión vienen del historial que ya existía. No calculamos las pruebas aprobadas restando las fallidas, porque puede haber pruebas omitidas.
+- La cobertura es un porcentaje entre 0 y 100.
 
 ## Configuración y uso
 
-Se usa Node.js 20 o posterior, coherente con la versión 20 del CI existente. No se agregaron dependencias al proyecto.
+Se necesita Node.js 20 o superior (el CI usa la versión 20). No agregamos dependencias.
 
-La URL completa se obtiene de **`TDDLAB_RESULTS_ENDPOINT`**. No hay una URL de backend predeterminada en el emisor. Si la variable no existe, el envío se desactiva y los respaldos siguen funcionando.
+La URL completa del endpoint se lee de **`TDDLAB_RESULTS_ENDPOINT`**. El script no tiene ninguna URL escrita adentro. Si la variable no existe, el envío queda desactivado y los respaldos siguen funcionando normal.
 
-Ejemplo de configuración en PowerShell, cuando se disponga de un endpoint compatible:
+### Solo para la terminal actual (PowerShell)
 
 ```powershell
-# URL ilustrativa; no se ha validado esta ruta en el backend del equipo.
+# URL de ejemplo; reemplazar por el endpoint real del backend
 $env:TDDLAB_RESULTS_ENDPOINT = 'http://127.0.0.1:3000/api/test-results'
 ```
 
-La variable debe estar definida en el proceso desde el que se realizan los commits. No se carga automáticamente un archivo `.env`.
+Esto vale solo mientras esa terminal esté abierta. La variable tiene que existir en el proceso desde el que se hace el commit. No se carga ningún archivo `.env`.
 
-Con los hooks de Husky instalados mediante `npm install`, los commits invocan automáticamente el emisor. También se puede invocar manualmente con `npm run send:test-results` para enviar el resumen del commit actual, si existe su registro `HEAD`. Este comando manual no vuelve a ejecutar Jest ni recupera pendientes.
+### Fija en Windows (para hacer commit desde WebStorm)
 
-El envío realiza un `POST` JSON, acepta respuestas 2xx y tiene un límite de espera de **3 segundos**. HTTP 4xx/5xx, errores de red, timeout y errores de lectura se capturan. Se escribe una línea JSON con fecha, SHA cuando está disponible y error en `script/backend-errors.log`, excluido de Git. Si el propio log no puede escribirse, queda una advertencia en consola y el fallo tampoco se propaga.
+WebStorm no ve las variables que se ponen con `$env:` en otra terminal. Para que el hook la encuentre al hacer commit desde el IDE, hay que guardarla en el usuario de Windows:
 
-## Demostración con datos falsos
+```powershell
+setx TDDLAB_RESULTS_ENDPOINT "<url>"
+```
+
+Después hay que **cerrar y volver a abrir WebStorm y la terminal**, porque `setx` no cambia los procesos que ya estaban abiertos. Para desactivar el envío otra vez se puede borrar la variable desde "Variables de entorno" en la configuración de Windows.
+
+### Cómo se envía
+
+Con los hooks de Husky instalados (`npm install`), cada commit llama al emisor automáticamente. También se puede llamar a mano con `npm run send:test-results`, que manda el resumen del commit actual si existe su registro `HEAD`. Este comando no vuelve a correr Jest ni reenvía commits anteriores.
+
+El envío es un `POST` con JSON, acepta cualquier respuesta 2xx y espera como máximo **3 segundos**. Se capturan los errores HTTP 4xx/5xx, los errores de red, el timeout y los errores al leer el historial.
+
+Cada error se guarda como una línea JSON en `script/backend-errors.log`, con la fecha, el SHA (si se conoce) y el mensaje. Este archivo está en `.gitignore`. Cuando el backend responde con un error y manda un cuerpo (por ejemplo, un 400 que dice qué campo falló), ese texto se agrega al mensaje recortado a 500 caracteres, por ejemplo `HTTP 400: {"error":"failedTests es obligatorio"}`. Si el log no se puede escribir, solo sale un aviso en consola y el commit sigue igual.
+
+## Pruebas con datos falsos
 
 ```powershell
 npm run test:hu07
 ```
 
-Este comando funciona sin backend externo. Levanta receptores HTTP temporales en `127.0.0.1` con puerto libre y utiliza la fixture `script/tests/fixtures/commit-history.json`: 6 pruebas, 1 fallida y cobertura del 80%.
+No hace falta un backend real. Las pruebas levantan receptores HTTP temporales en `127.0.0.1` con un puerto libre y usan la fixture `script/tests/fixtures/commit-history.json` (6 pruebas, 1 fallida, cobertura del 80%).
 
-Las pruebas de integración crean repositorios Git temporales con identidad y remoto falsos. Ejecutan el `.husky/post-commit` del proyecto y el emisor real. Solo sustituyen los dos generadores de resultados por scripts que escriben datos falsos; el lanzador de pruebas respeta `HUSKY=0` para evitar recursión durante el amend. Comprueban el SHA final, el POST y la conservación de los respaldos con respuestas HTTP 201 y HTTP 503. No realizan push y eliminan los repositorios temporales al terminar.
+Las pruebas de integración crean repositorios Git temporales con un usuario y un remoto falsos, y corren el `.husky/post-commit` real del proyecto junto con el emisor real. Solo cambian los dos generadores de resultados por scripts que escriben datos falsos, y respetan `HUSKY=0` para que el amend no se llame a sí mismo. Revisan que se mande el SHA final, que llegue el POST y que los respaldos se conserven, tanto con HTTP 201 como con HTTP 503. No hacen push y borran los repositorios temporales al final.
 
-Resultado verificado: **10/10 pruebas HU-07 y 1/1 prueba existente de Jest aprobadas**. El emisor también pasó ESLint. La [evidencia de validación](evidencias/hu07-validacion.md) incluye un JSON recibido realmente durante la prueba local.
+Resultado actual: **11/11 pruebas de HU-07 y 1/1 prueba de Jest aprobadas**, y el emisor pasa ESLint. Los detalles están en la [evidencia de validación](evidencias/hu07-validacion.md).
 
 ## Estado de los criterios
 
-| Criterio | Estado en este incremento |
-| --- | --- |
-| JSON conforme al contrato | Parcial: constructor y validación básica con contrato provisional. Falta el contrato acordado. |
-| Envío al endpoint de registro | Parcial: POST automático después del commit validado contra un receptor falso local. |
-| URL por configuración | Implementado mediante variable de entorno. |
-| Fallo de envío sin interrumpir al estudiante | Implementado y probado para HTTP 503, desconexión y timeout. |
-| Conservar archivo actual de respaldo | Conservados los dos JSON existentes; comprobado con el hook. |
-| Semana 1 contra backend con repositorio falso; semana 2 contra BD | Pendiente: la simulación local no equivale al backend real ni a la BD. |
-| Documentación en `docs/` | Agregada en este documento y su evidencia. |
+| # | Criterio | Estado | Evidencia o de quién depende |
+| --- | --- | --- | --- |
+| 1 | El JSON se arma con la estructura del contrato | Pendiente | Depende del contrato de la **HU-01**. Hoy se usa el formato provisional `hu07-draft-1`, con validación de conteos, cobertura, conclusión y SHA. |
+| 2 | Después de los tests, el script envía el resultado al endpoint | Parcial | El POST automático después del commit está probado con un receptor falso (pruebas 3 y 10). Falta probarlo contra el endpoint real de la **HU-03**. |
+| 3 | La URL sale de una variable de configuración | Cumplido | `TDDLAB_RESULTS_ENDPOINT`. Sin la variable el envío se desactiva (prueba 2). |
+| 4 | Si el envío falla no se corta el flujo y queda registrado el error | Cumplido | Probado con HTTP 503, HTTP 400 con motivo, sin conexión, timeout y log que no se puede escribir (pruebas 4 a 9 y 11). Falta definir en la **HU-01/HU-03** cómo responde el backend a un commit repetido, para no contarlo como error. |
+| 5 | Se sigue escribiendo el archivo de texto como respaldo | Cumplido | `tdd_log.json` y `commit-history.json` se conservan en el commit (pruebas 10 y 11). |
+| 6 | Semana 1 contra el backend con repositorio falso; semana 2 contra la BD | Pendiente | La semana 1 depende del endpoint de la **HU-03**. La semana 2 depende de la base de datos de la **HU-04**. Por ahora solo hay pruebas con un receptor local. |
+| 7 | Cambios documentados en `docs/` | Cumplido | Este documento y `docs/evidencias/hu07-validacion.md`. |
 
-## Hasta dónde se llegó y qué sigue
+## Lo que falta
 
-El resultado es un cliente inicial demostrable con datos falsos. Quedan pendientes acordar el contrato y endpoint definitivos, adaptar autenticación e identificación de estudiante/entrega si el backend lo exige, probar contra el backend con repositorio falso y comprobar la persistencia en base de datos.
+- Ajustar el JSON cuando esté el contrato de la HU-01, incluyendo cómo se identifica al estudiante si el backend lo pide.
+- Tratar la respuesta a un commit repetido como "ya registrado" cuando el contrato diga qué código devuelve.
+- Probar contra el backend con repositorio falso (semana 1) y contra la base de datos (semana 2), y guardar esa evidencia.
 
-No se implementaron reintentos, cola de pendientes, deduplicación ni migración de historiales. Un envío fallido permanece en los respaldos y se registra como error; no se reenvía automáticamente. Un HTTP 2xx solo indica aceptación del receptor y no demuestra almacenamiento en base de datos.
+No implementamos reintentos, cola de pendientes ni migración de historiales. Si un envío falla, el resultado se queda en los respaldos y en el log, pero no se reenvía solo. Un HTTP 2xx solo significa que el backend aceptó el JSON; no prueba que se haya guardado en la base de datos.
