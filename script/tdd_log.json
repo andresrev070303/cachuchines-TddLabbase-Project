@@ -18,9 +18,15 @@
     "testId": 2
   },
   {
-    "commitId": "HEAD",
+    "commitId": "f2e4e6c3eacaab805f74589c7f4ce3339bbfeed2",
     "commitName": "docs(hu07): update setup guide and criteria status\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
     "commitTimestamp": 1795571270045,
     "testId": 3
+  },
+  {
+    "commitId": "HEAD",
+    "commitName": "feat(scripts): send test results to jobs and ingest-logs endpoints\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+    "commitTimestamp": 1795645589531,
+    "testId": 4
   }
 ]

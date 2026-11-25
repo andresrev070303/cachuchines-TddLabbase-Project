@@ -1,5 +1,16 @@
 [
   {
+    "sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "commit": {
+      "date": "2026-11-24T13:00:00.000Z",
+      "message": "chore: commit anterior sin pruebas"
+    },
+    "coverage": 0,
+    "test_count": 0,
+    "failed_tests": 0,
+    "conclusion": "neutral"
+  },
+  {
     "sha": "HEAD",
     "commit": {
       "date": "2026-11-24T14:00:00.000Z",
