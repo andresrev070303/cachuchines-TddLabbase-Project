@@ -42,9 +42,15 @@
     "testId": 6
   },
   {
-    "commitId": "HEAD",
+    "commitId": "549185a3aa8f6a0295e6eb7ed9c73e1727cce882",
     "commitName": "docs(hu07): add fake repository backend evidence\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
     "commitTimestamp": 1795645851232,
     "testId": 7
+  },
+  {
+    "commitId": "HEAD",
+    "commitName": "docs(hu07): update contracts, setup guide and criteria status\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+    "commitTimestamp": 1795645909389,
+    "testId": 8
   }
 ]

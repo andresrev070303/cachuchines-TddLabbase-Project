@@ -21,10 +21,10 @@ npm test
 Ejecutar pruebas de unidad solo una vez:
 npm run test-once
 
-### HU-07: avance de envío de resultados al backend
+### HU-07: envío de resultados al backend
 
-Se agregó un emisor que utiliza `TDDLAB_RESULTS_ENDPOINT` y se ejecuta después del commit, conservando los respaldos JSON actuales. El contrato es provisional y el avance se validó con datos falsos.
+Después de cada commit, el hook manda el resultado a `/jobs` y los logs completos a `/ingest-logs` del backend de TDDLab, y conserva los respaldos JSON de siempre. La URL base se configura con `TDDLAB_BACKEND_URL` (por ejemplo `http://localhost:3000/api/TDDCycles`). Sin esa variable el envío queda desactivado. Ya se probó contra el backend con repositorio falso; la prueba con la base de datos está pendiente del esquema en Neon (HU-04).
 
-Demostración local sin backend externo: `npm run test:hu07`.
+Pruebas locales sin backend externo: `npm run test:hu07`.
 
 Ver [alcance, configuración y pendientes](docs/hu07-envio-resultados.md) y [evidencia de validación](docs/evidencias/hu07-validacion.md).
