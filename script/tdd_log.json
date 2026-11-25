@@ -30,9 +30,15 @@
     "testId": 4
   },
   {
-    "commitId": "HEAD",
+    "commitId": "a2e3265055856c95f59bbedf5714d97970fe4185",
     "commitName": "test(hu07): run send check against fake repository backend\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
     "commitTimestamp": 1795645643217,
     "testId": 5
+  },
+  {
+    "commitId": "HEAD",
+    "commitName": "test(hu07): run send check with backend down\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+    "commitTimestamp": 1795645676878,
+    "testId": 6
   }
 ]
