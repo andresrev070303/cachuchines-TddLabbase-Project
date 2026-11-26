@@ -2,16 +2,23 @@ import { fileURLToPath } from 'url';
 import fs from 'fs';
 import path from 'path';
 import { spawn } from 'cross-spawn';
+import process from 'node:process';
 import { getLastTestId } from './id_execution_tests_commit.js';
 
 const COMMAND = 'jest';
-const args = ['--json', '--outputFile=./script/report.json'];
+const args = ['--json', '--outputFile=./script/report.json', '--passWithNoTests'];
 
 function runCommand(command, args) {
   return new Promise((resolve, reject) => {
-    const process = spawn(command, args, { stdio: 'inherit' });
-    process.on('close', (code) => {
-      resolve();
+    const child = spawn(command, args, { stdio: ['inherit', 'pipe', 'inherit'] });
+    let output = '';
+    child.stdout.on('data', (chunk) => {
+      output += chunk;
+      process.stdout.write(chunk);
+    });
+    child.on('error', reject);
+    child.on('close', (code) => {
+      resolve({ code, output });
     });
   });
 }
@@ -34,11 +41,17 @@ const ensureFileExists = (filePath, initialData) => {
 
 const extractAndAddObject = async (reportFile, tddLogFile) => {
   try {
-    await runCommand(COMMAND, args);
+    // Never reuse a report left by a previous test run.
+    fs.rmSync(reportFile, { force: true });
+    const run = await runCommand(COMMAND, args);
 
     ensureFileExists(tddLogFile, []);
 
-    const jsonData = readJSONFile(reportFile);
+    // Jest does not emit its JSON report when no test files match.
+    const noTests = run.code === 0 && /No tests found/.test(run.output);
+    const jsonData = noTests
+      ? { numPassedTests: 0, numFailedTests: 0, numTotalTests: 0, startTime: Date.now(), success: true }
+      : readJSONFile(reportFile);
     const passedTests = jsonData.numPassedTests;
     const failedTests = jsonData.numFailedTests; 
     const totalTests = jsonData.numTotalTests;

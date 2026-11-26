@@ -54,7 +54,11 @@ export function buildIngestLogsPayload({ sha, owner, reponame, branch, commitHis
   if (!Array.isArray(commitHistory) || !Array.isArray(tddLog)) {
     throw new Error('commit-history.json y tdd_log.json deben ser arreglos');
   }
-  return { repoOwner: owner, repoName: reponame, branch, sha, commitHistory, tddLog };
+  // Preserve the local backup; normalize the legacy no-tests value for the API.
+  const apiHistory = commitHistory.map((entry) => entry?.conclusion === 'neutral'
+    ? { ...entry, conclusion: 'skipped' }
+    : entry);
+  return { repoOwner: owner, repoName: reponame, branch, sha, commitHistory: apiHistory, tddLog };
 }
 
 function recordFailure(endpointName, error, errorLogPath, commitSha = null) {

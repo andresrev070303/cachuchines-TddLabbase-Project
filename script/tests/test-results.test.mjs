@@ -99,11 +99,20 @@ test('arma el JSON de /ingest-logs con los arreglos completos', () => {
     repoName: 'repositorio-falso',
     branch: 'main',
     sha: metadata.sha,
-    commitHistory: fixture,
+    commitHistory: fixture.map((entry) => entry.conclusion === 'neutral' ? { ...entry, conclusion: 'skipped' } : entry),
     tddLog,
   });
   assert.throws(() => buildIngestLogsPayload({ ...metadata, branch: '', commitHistory: fixture, tddLog }), /detached HEAD/);
   assert.throws(() => buildIngestLogsPayload({ ...metadata, commitHistory: {}, tddLog }), /arreglos/);
+});
+
+test('ingest normaliza neutral a skipped sin modificar los respaldos originales', () => {
+  const history = [{ sha: 'HEAD', conclusion: 'neutral', extra: 0 }, { sha: metadata.sha, conclusion: 'success' }];
+  const original = structuredClone(history);
+  const payload = buildIngestLogsPayload({ ...metadata, commitHistory: history, tddLog });
+  assert.deepEqual(payload.commitHistory, [{ sha: 'HEAD', conclusion: 'skipped', extra: 0 }, original[1]]);
+  assert.deepEqual(history, original);
+  assert.equal(payload.tddLog, tddLog);
 });
 
 test('sin TDDLAB_BACKEND_URL no lee archivos ni requiere un backend', async () => {
@@ -305,7 +314,7 @@ test('el hook real envía a /jobs y /ingest-logs con el SHA posterior al amend y
     sha, owner: 'hu07-demo', reponame: 'repositorio-falso', conclusion: 'failure', branch: 'main',
   });
   assert.deepEqual(received['/api/TDDCycles/ingest-logs'], {
-    repoOwner: 'hu07-demo', repoName: 'repositorio-falso', branch: 'main', sha, commitHistory: fixture, tddLog,
+    repoOwner: 'hu07-demo', repoName: 'repositorio-falso', branch: 'main', sha, commitHistory: fixture.map((entry) => entry.conclusion === 'neutral' ? { ...entry, conclusion: 'skipped' } : entry), tddLog,
   });
   assert.match(stdout + stderr, /jobs: Resultado registrado \(HTTP 201\)/);
   assert.match(stdout + stderr, /ingest-logs: Logs enviados \(HTTP 201\)/);
