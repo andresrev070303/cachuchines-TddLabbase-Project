@@ -1,0 +1,31 @@
+{
+  "reviewedAtUTC": "2026-11-26T05:02:37.186154+00:00",
+  "document": "REPORTE_HU08_SCRIPTS.docx",
+  "sha256": "a86197906c26157570df6dc2179ee25361bd177526343c802c7caa200ec6a53d",
+  "pageCount": 8,
+  "embeddedScreenshots": 5,
+  "pageGeometryEMU": {
+    "page_width": 7562215,
+    "page_height": 10689590,
+    "top_margin": 914400,
+    "bottom_margin": 914400,
+    "left_margin": 914400,
+    "right_margin": 914400
+  },
+  "renderer": "Microsoft Word COM ExportAsFixedFormat and bundled Poppler",
+  "standardRendererDiagnostic": "render_docx.py diagnosed LibreOffice soffice.exe absent from PATH",
+  "pagesVisuallyInspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "visualReview": "All final page PNGs inspected. Tables, repeated headers, screenshots and captions remain within margins; no clipped report text or images.",
+  "referenceUnchanged": true,
+  "relativeEvidenceLinksExist": true,
+  "originalBackupsUnchanged": true
+}

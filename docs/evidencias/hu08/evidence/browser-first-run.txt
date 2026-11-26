@@ -1,0 +1,83 @@
+
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        13.13.3                                                                        │
+  │ Browser:        Electron 118 (headless)                                                        │
+  │ Node Version:   v22.23.5 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          1 found (migration-browser.cy.cjs)                                             │
+  │ Searched:       C:\Users\andre\OneDrive\Escritorio\UCB\2026\TALLER DE DESARROLLO\TDDLABBASE PR │
+  │                 OJECT\TDDLabBaseProject\script\tests\migration-browser.cy.cjs                  │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  Running:  migration-browser.cy.cjs                                                        (1 of 1)
+
+
+  HU08 integración de los scripts oficiales con PostgreSQL y vista
+    1) compara los respaldos reales con SELECT HTTP y los tres bloques
+    √ la aplicación base compilada sigue sumando en el navegador (907ms)
+
+
+  1 passing (14s)
+  1 failing
+
+  1) HU08 integración de los scripts oficiales con PostgreSQL y vista
+       compara los respaldos reales con SELECT HTTP y los tres bloques:
+
+      Timed out retrying after 4000ms
+      + expected - actual
+
+      -'https://github.com/hu07-validation/official-scripts-database-1795668643900/commit/e50955f2db481d9d26a38299f8fa486702917d4f'
+      +'https://github.com/hu07-validation/official-scripts-database-1795668643900/commit/HEAD'
+
+      at Context.eval (webpack:///./migration-browser.cy.cjs:53:0)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  2                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     13 seconds                                                                       │
+  │ Spec Ran:     migration-browser.cy.cjs                                                         │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Users\andre\OneDrive\Escritorio\UCB\2026\TALLER DE DESARROLLO\TDDLABBASE PROJ     (1280x720)
+     ECT\TDDLabBaseProject\docs\evidencias\hu08\evidence\screenshots\migration-browse
+     r.cy.cjs\HU08 integración de los scripts oficiales con PostgreSQL y vista -- com
+     para los respaldos reales con SELECT HTTP y los tres bloques (failed).png
+  -  C:\Users\andre\OneDrive\Escritorio\UCB\2026\TALLER DE DESARROLLO\TDDLABBASE PROJ      (884x113)
+     ECT\TDDLabBaseProject\docs\evidencias\hu08\evidence\screenshots\migration-browse
+     r.cy.cjs\05-sumador-compilado.png
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ×  migration-browser.cy.cjs                 00:13        2        1        1        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ×  1 of 1 failed (100%)                     00:13        2        1        1        -        -
+
+
+DevTools listening on ws://127.0.0.1:59052/devtools/browser/f69873fd-4232-454f-8382-c2443d23cd6f
+[15544:1126/005316.810:ERROR:command_buffer_proxy_impl.cc(319)] GPU state invalid after WaitForGetOffsetInRange.

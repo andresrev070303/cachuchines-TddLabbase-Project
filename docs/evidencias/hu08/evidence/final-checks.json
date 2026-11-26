@@ -1,0 +1,22 @@
+[
+  {
+    "name": "final-hu07-node-tests",
+    "exitCode": 0
+  },
+  {
+    "name": "final-jest",
+    "exitCode": 0
+  },
+  {
+    "name": "final-build",
+    "exitCode": 0
+  },
+  {
+    "name": "final-sender-eslint",
+    "exitCode": 0
+  },
+  {
+    "name": "final-script-syntax",
+    "exitCode": 0
+  }
+]

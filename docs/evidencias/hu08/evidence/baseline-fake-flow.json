@@ -1,0 +1,235 @@
+{
+  "storage": "baseline-fake",
+  "backend": "http://127.0.0.1:3008/api/TDDCycles",
+  "startedAt": "2026-11-26T04:45:42.023Z",
+  "cases": [
+    {
+      "name": "aprobados",
+      "total": 2,
+      "failed": 0,
+      "conclusion": "success",
+      "sha": "d311d08d3b88be306f0b81c7ae689ae370e089b8",
+      "history": [
+        {
+          "sha": "HEAD",
+          "author": "HU08 Validation",
+          "commit": {
+            "date": "2026-11-26T04:46:03.000Z",
+            "message": "Prueba HU08 aprobados",
+            "url": "https://github.com/hu07-validation/official-scripts-baseline-fake-1795668343361/commit/HEAD"
+          },
+          "stats": {
+            "total": 14,
+            "additions": 13,
+            "deletions": 1,
+            "date": "2026-11-26"
+          },
+          "coverage": 100,
+          "test_count": 2,
+          "failed_tests": 0,
+          "conclusion": "success"
+        }
+      ],
+      "logs": [
+        {
+          "numPassedTests": 2,
+          "failedTests": 0,
+          "numTotalTests": 2,
+          "timestamp": 1795668356166,
+          "success": true,
+          "testId": 0
+        },
+        {
+          "commitId": "HEAD",
+          "commitName": "Prueba HU08 aprobados",
+          "commitTimestamp": 1795668363910,
+          "testId": 0
+        }
+      ],
+      "job": {
+        "sha": "d311d08d3b88be306f0b81c7ae689ae370e089b8",
+        "owner": "hu07-validation",
+        "reponame": "official-scripts-baseline-fake-1795668343361",
+        "conclusion": "success",
+        "branch": "feature/hu07-validation",
+        "id": 1004
+      },
+      "projected": {
+        "html_url": "https://github.com/hu07-validation/official-scripts-baseline-fake-1795668343361/commit/HEAD",
+        "sha": "d311d08d3b88be306f0b81c7ae689ae370e089b8",
+        "stats": {
+          "total": 14,
+          "additions": 13,
+          "deletions": 1,
+          "date": "2026-11-26"
+        },
+        "commit": {
+          "date": "2026-11-26T04:46:03.000Z",
+          "message": "Prueba HU08 aprobados",
+          "url": "https://github.com/hu07-validation/official-scripts-baseline-fake-1795668343361/commit/HEAD"
+        },
+        "coverage": 100,
+        "test_count": 2,
+        "conclusion": "success"
+      },
+      "execution": {
+        "numPassedTests": 2,
+        "failedTests": 0,
+        "numTotalTests": 2,
+        "timestamp": 1795668356166,
+        "success": true,
+        "testId": 0
+      },
+      "consoleOutput": "[feature/hu07-validation 953d9d8] Prueba HU08 aprobados\n 2 files changed, 13 insertions(+), 1 deletion(-)\n create mode 100644 src/sumador.test.js\nwarning: in the working copy of 'script/commit-history.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'script/tdd_log.json', LF will be replaced by CRLF the next time Git touches it\n[feature/hu07-validation d311d08] Prueba HU08 aprobados\n Date: Thu Nov 26 00:46:03 2026 -0400\n 3 files changed, 40 insertions(+), 2 deletions(-)\n create mode 100644 src/sumador.test.js\n[HU-07] jobs: Resultado registrado (HTTP 201).\n[HU-07] ingest-logs: Logs enviados (HTTP 200).\n"
+    },
+    {
+      "name": "fallidos",
+      "total": 2,
+      "failed": 1,
+      "conclusion": "failure",
+      "sha": "41e7dc5d9921f5ad5d0c85ebe776e691342c2c8c",
+      "history": [
+        {
+          "sha": "d311d08d3b88be306f0b81c7ae689ae370e089b8",
+          "author": "HU08 Validation",
+          "commit": {
+            "date": "2026-11-26T04:46:03.000Z",
+            "message": "Prueba HU08 aprobados",
+            "url": "https://github.com/hu07-validation/official-scripts-baseline-fake-1795668343361/commit/d311d08d3b88be306f0b81c7ae689ae370e089b8"
+          },
+          "stats": {
+            "total": 14,
+            "additions": 13,
+            "deletions": 1,
+            "date": "2026-11-26"
+          },
+          "coverage": 100,
+          "test_count": 2,
+          "failed_tests": 0,
+          "conclusion": "success"
+        },
+        {
+          "sha": "HEAD",
+          "author": "HU08 Validation",
+          "commit": {
+            "date": "2026-11-26T04:46:25.000Z",
+            "message": "Prueba HU08 fallidos",
+            "url": "https://github.com/hu07-validation/official-scripts-baseline-fake-1795668343361/commit/HEAD"
+          },
+          "stats": {
+            "total": 10,
+            "additions": 9,
+            "deletions": 1,
+            "date": "2026-11-26"
+          },
+          "coverage": 100,
+          "test_count": 2,
+          "failed_tests": 1,
+          "conclusion": "failure"
+        }
+      ],
+      "logs": [
+        {
+          "numPassedTests": 2,
+          "failedTests": 0,
+          "numTotalTests": 2,
+          "timestamp": 1795668356166,
+          "success": true,
+          "testId": 0
+        },
+        {
+          "commitId": "d311d08d3b88be306f0b81c7ae689ae370e089b8",
+          "commitName": "Prueba HU08 aprobados",
+          "commitTimestamp": 1795668363910,
+          "testId": 0
+        },
+        {
+          "numPassedTests": 1,
+          "failedTests": 1,
+          "numTotalTests": 2,
+          "timestamp": 1795668383724,
+          "success": false,
+          "testId": 1
+        },
+        {
+          "commitId": "HEAD",
+          "commitName": "Prueba HU08 fallidos",
+          "commitTimestamp": 1795668385369,
+          "testId": 1
+        }
+      ],
+      "job": {
+        "sha": "41e7dc5d9921f5ad5d0c85ebe776e691342c2c8c",
+        "owner": "hu07-validation",
+        "reponame": "official-scripts-baseline-fake-1795668343361",
+        "conclusion": "failure",
+        "branch": "feature/hu07-validation",
+        "id": 1005
+      },
+      "projected": {
+        "html_url": "https://github.com/hu07-validation/official-scripts-baseline-fake-1795668343361/commit/HEAD",
+        "sha": "41e7dc5d9921f5ad5d0c85ebe776e691342c2c8c",
+        "stats": {
+          "total": 10,
+          "additions": 9,
+          "deletions": 1,
+          "date": "2026-11-26"
+        },
+        "commit": {
+          "date": "2026-11-26T04:46:25.000Z",
+          "message": "Prueba HU08 fallidos",
+          "url": "https://github.com/hu07-validation/official-scripts-baseline-fake-1795668343361/commit/HEAD"
+        },
+        "coverage": 100,
+        "test_count": 2,
+        "conclusion": "failure"
+      },
+      "execution": {
+        "numPassedTests": 1,
+        "failedTests": 1,
+        "numTotalTests": 2,
+        "timestamp": 1795668383724,
+        "success": false,
+        "testId": 1
+      },
+      "consoleOutput": "[feature/hu07-validation f74a2bf] Prueba HU08 fallidos\n 2 files changed, 9 insertions(+), 1 deletion(-)\nwarning: in the working copy of 'script/commit-history.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'script/tdd_log.json', LF will be replaced by CRLF the next time Git touches it\n[feature/hu07-validation 41e7dc5] Prueba HU08 fallidos\n Date: Thu Nov 26 00:46:25 2026 -0400\n 3 files changed, 37 insertions(+), 4 deletions(-)\n[HU-07] jobs: Resultado registrado (HTTP 201).\n[HU-07] ingest-logs: Logs enviados (HTTP 200).\n"
+    }
+  ],
+  "owner": "hu07-validation",
+  "repo": "official-scripts-baseline-fake-1795668343361",
+  "branch": "feature/hu07-validation",
+  "lastExecution": {
+    "scenario": "sin-tests",
+    "execution": {
+      "numPassedTests": 1,
+      "failedTests": 1,
+      "numTotalTests": 2,
+      "timestamp": 1795668383724,
+      "success": false,
+      "testId": 2
+    },
+    "output": "No tests found, exiting with code 1\nRun with `--passWithNoTests` to exit with code 0\nIn C:\\Users\\andre\\AppData\\Local\\Temp\\tddlab-hu08-official-oss5bE\n  15 files checked.\n  testMatch: **/__tests__/**/*.[jt]s?(x), **/?(*.)+(spec|test).[tj]s?(x) - 0 matches\n  testPathIgnorePatterns: \\\\node_modules\\\\ - 15 matches\n  testRegex:  - 0 matches\nPattern:  - 0 matches\n"
+  },
+  "lastCommitOutput": "[feature/hu07-validation f74a2bf] Prueba HU08 fallidos\n 2 files changed, 9 insertions(+), 1 deletion(-)\nwarning: in the working copy of 'script/commit-history.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'script/tdd_log.json', LF will be replaced by CRLF the next time Git touches it\n[feature/hu07-validation 41e7dc5] Prueba HU08 fallidos\n Date: Thu Nov 26 00:46:25 2026 -0400\n 3 files changed, 37 insertions(+), 4 deletions(-)\n[HU-07] jobs: Resultado registrado (HTTP 201).\n[HU-07] ingest-logs: Logs enviados (HTTP 200).\n",
+  "offline": {
+    "sha": "215bdc6982ff22be5c8b87982fdf687745b0e084",
+    "exitCode": 0,
+    "errors": [
+      {
+        "timestamp": "2026-11-26T04:46:41.187Z",
+        "endpoint": "jobs",
+        "commitSha": "215bdc6982ff22be5c8b87982fdf687745b0e084",
+        "error": "fetch failed"
+      },
+      {
+        "timestamp": "2026-11-26T04:46:41.189Z",
+        "endpoint": "ingest-logs",
+        "commitSha": "215bdc6982ff22be5c8b87982fdf687745b0e084",
+        "error": "fetch failed"
+      }
+    ],
+    "consoleOutput": "[feature/hu07-validation 84ee579] Prueba HU08 backend apagado\n 2 files changed, 17 insertions(+), 1 deletion(-)\nwarning: in the working copy of 'script/commit-history.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'script/tdd_log.json', LF will be replaced by CRLF the next time Git touches it\n[feature/hu07-validation 215bdc6] Prueba HU08 backend apagado\n Date: Thu Nov 26 00:46:36 2026 -0400\n 3 files changed, 45 insertions(+), 4 deletions(-)\n[HU-07] jobs: no se envió: fetch failed. Se conserva el respaldo local.\n[HU-07] ingest-logs: no se envió: fetch failed. Se conserva el respaldo local.\n",
+    "backupsCommitted": true
+  },
+  "endedAt": "2026-11-26T04:46:41.358Z"
+}

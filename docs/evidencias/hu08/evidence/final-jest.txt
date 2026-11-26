@@ -1,0 +1,10 @@
+PASS src/sumador.test.js
+  Sumar
+    √ deberia sumar dos numeros (2 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        1.11 s, estimated 7 s
+Ran all test suites.
+Test results written to: docs\evidencias\hu08\evidence\final-jest.json

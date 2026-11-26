@@ -1,0 +1,47 @@
+TAP version 13
+# Subtest: HU08 scripts oficiales ejecutar respaldar registrar consultar y repetir
+    # Subtest: aprobados
+    ok 1 - aprobados
+      ---
+      duration_ms: 9652.5604
+      type: 'test'
+      ...
+    # Subtest: fallidos
+    ok 2 - fallidos
+      ---
+      duration_ms: 7831.9447
+      type: 'test'
+      ...
+    # Subtest: sin-tests
+    ok 3 - sin-tests
+      ---
+      duration_ms: 5365.6669
+      type: 'test'
+      ...
+    # Subtest: reenvío del SHA final sin duplicados ni cambios de respaldo
+    ok 4 - reenvío del SHA final sin duplicados ni cambios de respaldo
+      ---
+      duration_ms: 237.4296
+      type: 'test'
+      ...
+    # Subtest: backend apagado permite terminar el commit y conserva respaldo y errores
+    ok 5 - backend apagado permite terminar el commit y conserva respaldo y errores
+      ---
+      duration_ms: 7731.9975
+      type: 'test'
+      ...
+    1..5
+ok 1 - HU08 scripts oficiales ejecutar respaldar registrar consultar y repetir
+  ---
+  duration_ms: 31395.1425
+  type: 'test'
+  ...
+1..1
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 31503.7104

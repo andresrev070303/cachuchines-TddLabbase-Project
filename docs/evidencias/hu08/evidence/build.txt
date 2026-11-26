@@ -1,0 +1,11 @@
+Building...
+Bundling...
+Packaging & Optimizing...
+√ Built in 3.46s
+
+dist\index.html           485 B    280ms
+dist\index.ecccb643.js    379 B    309ms
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+You have to install "svgo" in order to use htmlnano's "minifySvg" module

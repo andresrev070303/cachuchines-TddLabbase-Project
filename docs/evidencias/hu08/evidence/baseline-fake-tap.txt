@@ -1,0 +1,89 @@
+TAP version 13
+# Subtest: HU08 scripts oficiales ejecutar respaldar registrar consultar y repetir
+    # Subtest: aprobados
+    ok 1 - aprobados
+      ---
+      duration_ms: 38246.5592
+      type: 'test'
+      ...
+    # Subtest: fallidos
+    ok 2 - fallidos
+      ---
+      duration_ms: 8926.6533
+      type: 'test'
+      ...
+    # Subtest: sin-tests
+    not ok 3 - sin-tests
+      ---
+      duration_ms: 1278.5047
+      type: 'test'
+      location: 'C:\\Users\\andre\\OneDrive\\Escritorio\\UCB\\2026\\TALLER DE DESARROLLO\\TDDLABBASE PROJECT\\TDDLabBaseProject\\script\\tests\\migration-flow.test.mjs:89:15'
+      failureType: 'testCodeFailure'
+      error: |-
+        tdd_log debe representar esta ejecución, sin reutilizar resultados anteriores
+
+        2 !== 0
+
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 0
+      actual: 2
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (file:///C:/Users/andre/OneDrive/Escritorio/UCB/2026/TALLER%20DE%20DESARROLLO/TDDLABBASE%20PROJECT/TDDLabBaseProject/script/tests/migration-flow.test.mjs:98:16)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async TestContext.<anonymous> (file:///C:/Users/andre/OneDrive/Escritorio/UCB/2026/TALLER%20DE%20DESARROLLO/TDDLABBASE%20PROJECT/TDDLabBaseProject/script/tests/migration-flow.test.mjs:89:7)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+      ...
+    # Subtest: reenvío del SHA final sin duplicados ni cambios de respaldo
+    not ok 4 - reenvío del SHA final sin duplicados ni cambios de respaldo
+      ---
+      duration_ms: 350.9461
+      type: 'test'
+      location: 'C:\\Users\\andre\\OneDrive\\Escritorio\\UCB\\2026\\TALLER DE DESARROLLO\\TDDLABBASE PROJECT\\TDDLabBaseProject\\script\\tests\\migration-flow.test.mjs:133:13'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+
+        2 !== 3
+
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 3
+      actual: 2
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (file:///C:/Users/andre/OneDrive/Escritorio/UCB/2026/TALLER%20DE%20DESARROLLO/TDDLABBASE%20PROJECT/TDDLabBaseProject/script/tests/migration-flow.test.mjs:140:14)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async TestContext.<anonymous> (file:///C:/Users/andre/OneDrive/Escritorio/UCB/2026/TALLER%20DE%20DESARROLLO/TDDLABBASE%20PROJECT/TDDLabBaseProject/script/tests/migration-flow.test.mjs:133:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+      ...
+    # Subtest: backend apagado permite terminar el commit y conserva respaldo y errores
+    ok 5 - backend apagado permite terminar el commit y conserva respaldo y errores
+      ---
+      duration_ms: 8311.3193
+      type: 'test'
+      ...
+    1..5
+not ok 1 - HU08 scripts oficiales ejecutar respaldar registrar consultar y repetir
+  ---
+  duration_ms: 59364.2
+  type: 'test'
+  location: 'C:\\Users\\andre\\OneDrive\\Escritorio\\UCB\\2026\\TALLER DE DESARROLLO\\TDDLABBASE PROJECT\\TDDLabBaseProject\\script\\tests\\migration-flow.test.mjs:78:1'
+  failureType: 'subtestsFailed'
+  error: '2 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..1
+# tests 6
+# suites 0
+# pass 3
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 59678.947

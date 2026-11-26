@@ -1,0 +1,18 @@
+{
+  "functionalChecksPassed": true,
+  "hu07NodeTests": 21,
+  "jestTests": 1,
+  "integrationFakeTests": 6,
+  "integrationDatabaseTests": 6,
+  "browserScenarios": 2,
+  "buildPassed": true,
+  "senderEslintPassed": true,
+  "projectEslintPassed": false,
+  "originalBackupsUnchanged": true,
+  "documentPagesReviewed": 8,
+  "pending": [
+    "Trello and Notion publication deferred by user",
+    "Shared team environment",
+    "Evidence of the two-week schedule"
+  ]
+}

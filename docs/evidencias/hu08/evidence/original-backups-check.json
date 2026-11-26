@@ -1,0 +1,15 @@
+{
+  "unchanged": true,
+  "files": [
+    {
+      "file": "script/commit-history.json",
+      "before": "59b3c017a16bc08e479ffd76dd235e119a499bafb5e230db64ac0632bf60ceeb",
+      "after": "59b3c017a16bc08e479ffd76dd235e119a499bafb5e230db64ac0632bf60ceeb"
+    },
+    {
+      "file": "script/tdd_log.json",
+      "before": "1d208cf5c395aada3e1a0787fd597784212880ba6deb8bd93984b2c22ca70c76",
+      "after": "1d208cf5c395aada3e1a0787fd597784212880ba6deb8bd93984b2c22ca70c76"
+    }
+  ]
+}

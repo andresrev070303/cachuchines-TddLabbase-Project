@@ -200,3 +200,8 @@ Esto no es parte de la HU-07, pero lo vimos en la prueba con la BD (detalle en l
 - Los jobs que crea `/ingest-logs` para commits anteriores quedan con `failure`, aunque el historial dice `success`. Le toca revisarlo a la HU-03.
 
 No implementamos reintentos, cola de pendientes ni migración de historiales. Si un envío falla, el resultado se queda en los respaldos y en el log, pero no se reenvía solo. Igual se puede mandar a mano con `npm run send:test-results` mientras el commit siga siendo `HEAD`.
+
+
+## Validación complementaria de HU08
+
+La validación del 26 de noviembre de 2026 usa los scripts oficiales contra el backend actualizado, en modo falso y PostgreSQL local. Incluye el caso sin tests, reenvío y backend apagado, y compara la base con la vista. El emisor convierte neutral a skipped al enviar el historial y conserva los JSON originales; tddScript evita reutilizar el reporte de una ejecución anterior cuando no hay tests. Ver el [reporte con capturas](evidencias/hu08/REPORTE_HU08_SCRIPTS.md), su Word y la [reproducción](evidencias/hu08/REPRODUCCION.md). Las evidencias previas de Neon se mantienen como registro histórico de otra revisión del backend.

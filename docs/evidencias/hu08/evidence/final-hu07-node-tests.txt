@@ -1,0 +1,159 @@
+TAP version 13
+# [HU-07] Envío desactivado: configura TDDLAB_BACKEND_URL para habilitarlo.
+# Subtest: arma el JSON de /jobs con exactamente sha, owner, reponame, conclusion y branch
+ok 1 - arma el JSON de /jobs con exactamente sha, owner, reponame, conclusion y branch
+  ---
+  duration_ms: 2.7792
+  type: 'test'
+  ...
+# Subtest: extrae owner y reponame del remoto https y ssh
+ok 2 - extrae owner y reponame del remoto https y ssh
+  ---
+  duration_ms: 0.6051
+  type: 'test'
+  ...
+# Subtest: arma las URL de los dos endpoints desde TDDLAB_BACKEND_URL
+ok 3 - arma las URL de los dos endpoints desde TDDLAB_BACKEND_URL
+  ---
+  duration_ms: 0.2366
+  type: 'test'
+  ...
+# Subtest: arma el JSON de /ingest-logs con los arreglos completos
+ok 4 - arma el JSON de /ingest-logs con los arreglos completos
+  ---
+  duration_ms: 0.4172
+  type: 'test'
+  ...
+# Subtest: ingest normaliza neutral a skipped sin modificar los respaldos originales
+ok 5 - ingest normaliza neutral a skipped sin modificar los respaldos originales
+  ---
+  duration_ms: 0.2488
+  type: 'test'
+  ...
+# Subtest: sin TDDLAB_BACKEND_URL no lee archivos ni requiere un backend
+ok 6 - sin TDDLAB_BACKEND_URL no lee archivos ni requiere un backend
+  ---
+  duration_ms: 0.7401
+  type: 'test'
+  ...
+# [HU-07] jobs: Resultado registrado (HTTP 201).
+# Subtest: /jobs con HTTP 201 queda como registrado
+ok 7 - /jobs con HTTP 201 queda como registrado
+  ---
+  duration_ms: 52.6708
+  type: 'test'
+  ...
+# [HU-07] jobs: Ya estaba registrado (HTTP 200).
+# Subtest: /jobs con HTTP 200 duplicate no es error y no escribe en el log
+ok 8 - /jobs con HTTP 200 duplicate no es error y no escribe en el log
+  ---
+  duration_ms: 12.2567
+  type: 'test'
+  ...
+# [HU-07] jobs: no se envió: HTTP 409: {"status":"conflict"}. Se conserva el respaldo local.
+# Subtest: /jobs con HTTP 409 conflict se registra como error con su motivo
+ok 9 - /jobs con HTTP 409 conflict se registra como error con su motivo
+  ---
+  duration_ms: 11.1716
+  type: 'test'
+  ...
+# [HU-07] ingest-logs: no se envió: HTTP 503. Se conserva el respaldo local.
+# Subtest: HTTP 503 queda registrado con su endpoint y no lanza una excepción
+ok 10 - HTTP 503 queda registrado con su endpoint y no lanza una excepción
+  ---
+  duration_ms: 20.0508
+  type: 'test'
+  ...
+# [HU-07] jobs: no se envió: HTTP 400: {"error":"sha es obligatorio","field":"sha"}. Se conserva el respaldo local.
+# [HU-07] jobs: no se envió: HTTP 400: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx. Se conserva el respaldo local.
+# Subtest: HTTP 400 guarda en el log el motivo que devuelve el backend
+ok 11 - HTTP 400 guarda en el log el motivo que devuelve el backend
+  ---
+  duration_ms: 20.1338
+  type: 'test'
+  ...
+# [HU-07] jobs: no se envió: fetch failed. Se conserva el respaldo local.
+# Subtest: backend sin conexión queda registrado y permite continuar
+ok 12 - backend sin conexión queda registrado y permite continuar
+  ---
+  duration_ms: 9.8831
+  type: 'test'
+  ...
+# [HU-07] jobs: no se envió: The operation was aborted due to timeout. Se conserva el respaldo local.
+# Subtest: un backend que no responde se cancela por timeout
+ok 13 - un backend que no responde se cancela por timeout
+  ---
+  duration_ms: 100.3234
+  type: 'test'
+  ...
+# [HU-07] jobs: no se envió: HTTP 500. Se conserva el respaldo local.
+# [HU-07] No se pudo escribir el log de errores: EISDIR: illegal operation on a directory, write
+# Subtest: si no se puede escribir el log el error tampoco se propaga
+ok 14 - si no se puede escribir el log el error tampoco se propaga
+  ---
+  duration_ms: 18.7982
+  type: 'test'
+  ...
+# [HU-07] ingest-logs: no se envió: Unexpected token 'J', "JSON inválido" is not valid JSON. Se conserva el respaldo local.
+# [HU-07] jobs: Resultado registrado (HTTP 201).
+# Subtest: un tdd_log corrupto solo bloquea /ingest-logs: /jobs se envía igual y el respaldo no se toca
+ok 15 - un tdd_log corrupto solo bloquea /ingest-logs: /jobs se envía igual y el respaldo no se toca
+  ---
+  duration_ms: 491.8873
+  type: 'test'
+  ...
+# [HU-07] jobs: no se envió: The operation was aborted due to timeout. Se conserva el respaldo local.
+# [HU-07] ingest-logs: Logs enviados (HTTP 201).
+# Subtest: cada endpoint usa su propio timeout: /jobs 3 s y /ingest-logs 15 s
+ok 16 - cada endpoint usa su propio timeout: /jobs 3 s y /ingest-logs 15 s
+  ---
+  duration_ms: 631.1852
+  type: 'test'
+  ...
+# [HU-07] jobs: no se envió: No se pudo obtener owner y reponame de remote.origin.url: "no-es-un-remoto". Se conserva el respaldo local.
+# [HU-07] ingest-logs: no se envió: No se pudo obtener owner y reponame de remote.origin.url: "no-es-un-remoto". Se conserva el respaldo local.
+# Subtest: un remoto sin owner/reponame se registra para ambos endpoints sin lanzar
+ok 17 - un remoto sin owner/reponame se registra para ambos endpoints sin lanzar
+  ---
+  duration_ms: 406.1938
+  type: 'test'
+  ...
+# [HU-07] ingest-logs: no se envió: Sin rama actual (detached HEAD): no se envían los logs. Se conserva el respaldo local.
+# [HU-07] jobs: Resultado registrado (HTTP 201).
+# Subtest: en detached HEAD /ingest-logs no se envía y se registra el motivo
+ok 18 - en detached HEAD /ingest-logs no se envía y se registra el motivo
+  ---
+  duration_ms: 512.2363
+  type: 'test'
+  ...
+# Subtest: el hook real envía a /jobs y /ingest-logs con el SHA posterior al amend y conserva ambos JSON
+ok 19 - el hook real envía a /jobs y /ingest-logs con el SHA posterior al amend y conserva ambos JSON
+  ---
+  duration_ms: 1202.2227
+  type: 'test'
+  ...
+# JSON recibido en /jobs: {"sha":"ba5f8b31935034428eddcdec4f7ccff084111a63","owner":"hu07-demo","reponame":"repositorio-falso","conclusion":"failure","branch":"main"}
+# HTTP 201 en ambos endpoints; SHA recibido = git rev-parse HEAD; ambos respaldos conservados en el commit.
+# Subtest: el hook real termina el commit y envía /jobs aunque /ingest-logs devuelva HTTP 503
+ok 20 - el hook real termina el commit y envía /jobs aunque /ingest-logs devuelva HTTP 503
+  ---
+  duration_ms: 1161.8186
+  type: 'test'
+  ...
+# /jobs HTTP 201 y /ingest-logs HTTP 503; git commit terminó; el log solo registra ingest-logs.
+# Subtest: el hook real termina el commit con el backend apagado y registra ambos endpoints
+ok 21 - el hook real termina el commit con el backend apagado y registra ambos endpoints
+  ---
+  duration_ms: 1176.8291
+  type: 'test'
+  ...
+# Backend apagado; git commit terminó correctamente; backend-errors.log registra jobs e ingest-logs.
+1..21
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5969.3606

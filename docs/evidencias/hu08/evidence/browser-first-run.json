@@ -1,0 +1,43 @@
+{
+  "browser": "electron",
+  "browserVersion": "118.0.5993.159",
+  "totalTests": 2,
+  "totalPassed": 1,
+  "totalFailed": 1,
+  "startedAt": "2026-11-26T04:53:02.961Z",
+  "endedAt": "2026-11-26T04:53:16.622Z",
+  "runs": [
+    {
+      "spec": "script\\tests\\migration-browser.cy.cjs",
+      "stats": {
+        "duration": 13661,
+        "endedAt": "2026-11-26T04:53:16.622Z",
+        "failures": 1,
+        "passes": 1,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2026-11-26T04:53:02.961Z",
+        "suites": 1,
+        "tests": 2
+      },
+      "tests": [
+        {
+          "title": [
+            "HU08 integración de los scripts oficiales con PostgreSQL y vista",
+            "compara los respaldos reales con SELECT HTTP y los tres bloques"
+          ],
+          "state": "failed",
+          "error": "AssertionError: Timed out retrying after 4000ms: expected '<a>' to have attribute 'href' with the value 'https://github.com/hu07-validation/official-scripts-database-1795668643900/commit/HEAD', but the value was 'https://github.com/hu07-validation/official-scripts-database-1795668643900/commit/e50955f2db481d9d26a38299f8fa486702917d4f'\n    at Context.eval (webpack:///./migration-browser.cy.cjs:53:0)"
+        },
+        {
+          "title": [
+            "HU08 integración de los scripts oficiales con PostgreSQL y vista",
+            "la aplicación base compilada sigue sumando en el navegador"
+          ],
+          "state": "passed",
+          "error": null
+        }
+      ]
+    }
+  ]
+}

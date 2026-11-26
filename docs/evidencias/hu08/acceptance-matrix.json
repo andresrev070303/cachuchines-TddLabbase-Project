@@ -1,0 +1,86 @@
+[
+  {
+    "id": "HU07-1",
+    "criterion": "JSON con la estructura del contrato",
+    "status": "Cumplido",
+    "evidence": "21 tests del emisor y registro HTTP real en ambos modos"
+  },
+  {
+    "id": "HU07-2",
+    "criterion": "Envío automático después de procesar los tests",
+    "status": "Cumplido",
+    "evidence": "Hook real ejecutado con los generadores reales y SHA final después del amend"
+  },
+  {
+    "id": "HU07-3",
+    "criterion": "URL desde una variable de configuración",
+    "status": "Cumplido",
+    "evidence": "TDDLAB_BACKEND_URL y pruebas de envío desactivado sin variable"
+  },
+  {
+    "id": "HU07-4",
+    "criterion": "Un error no interrumpe el trabajo y queda registrado",
+    "status": "Cumplido",
+    "evidence": "Commit con backend apagado termina con código 0; dos errores y respaldos guardados"
+  },
+  {
+    "id": "HU07-5",
+    "criterion": "Se conservan los archivos actuales como respaldo",
+    "status": "Cumplido",
+    "evidence": "Ambos JSON incluidos en los commits temporales; archivos originales intactos"
+  },
+  {
+    "id": "HU07-6",
+    "criterion": "Semana uno con falso y semana dos con base de datos",
+    "status": "No cumplido",
+    "evidence": "Ambos modos aprobados el 26 de noviembre; no se acredita aquí la cronología de dos semanas"
+  },
+  {
+    "id": "HU07-7",
+    "criterion": "Cambios documentados en docs como continuación del análisis",
+    "status": "Cumplido",
+    "evidence": "Este reporte complementa los documentos HU07 existentes"
+  },
+  {
+    "id": "HU08-1",
+    "criterion": "Plan con aprobados fallidos sin tests y repetido",
+    "status": "Cumplido",
+    "evidence": "Plan y casos ejecutados en este reporte"
+  },
+  {
+    "id": "HU08-2",
+    "criterion": "JSON base y vista coinciden para cada caso",
+    "status": "Cumplido",
+    "evidence": "SELECT y tarjetas comparados; conversiones HEAD y neutral explicadas"
+  },
+  {
+    "id": "HU08-3",
+    "criterion": "Flujo completo ejecutar enviar registrar consultar visualizar",
+    "status": "Cumplido",
+    "evidence": "Scripts oficiales y hook reales; backend real PostgreSQL y página real de TDDLab"
+  },
+  {
+    "id": "HU08-4",
+    "criterion": "Archivo falso y BD con la misma forma de datos",
+    "status": "Cumplido",
+    "evidence": "Prueba previa del backend en 4639ee4b; aquí se validan los dos modos del backend"
+  },
+  {
+    "id": "HU08-5",
+    "criterion": "Defectos en Trello y bloqueantes resueltos",
+    "status": "No cumplido",
+    "evidence": "Dos bloqueantes resueltos; fichas preparadas y publicación diferida por el usuario"
+  },
+  {
+    "id": "HU08-6",
+    "criterion": "Criterios HU02 a HU07 con evidencia",
+    "status": "Cumplido",
+    "evidence": "HU07 en esta matriz; HU02 a HU06 en el reporte previo del backend"
+  },
+  {
+    "id": "HU08-7",
+    "criterion": "Reporte en repositorio y Notion de integrantes",
+    "status": "No cumplido",
+    "evidence": "Reporte local incluido; publicación en Notion diferida por el usuario"
+  }
+]

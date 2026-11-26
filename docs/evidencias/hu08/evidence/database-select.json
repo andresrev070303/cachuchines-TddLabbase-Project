@@ -1,0 +1,132 @@
+{
+  "snapshots": [
+    {
+      "commit_history": [
+        {
+          "sha": "e50955f2db481d9d26a38299f8fa486702917d4f",
+          "stats": {
+            "date": "2026-11-26",
+            "total": 14,
+            "additions": 13,
+            "deletions": 1
+          },
+          "author": "HU08 Validation",
+          "commit": {
+            "url": "https://github.com/hu07-validation/official-scripts-database-1795668643900/commit/e50955f2db481d9d26a38299f8fa486702917d4f",
+            "date": "2026-11-26T04:50:46.000Z",
+            "message": "Prueba HU08 aprobados"
+          },
+          "coverage": 100,
+          "conclusion": "success",
+          "test_count": 2,
+          "failed_tests": 0
+        },
+        {
+          "sha": "b9fa3d3a316c33aaeadad6bc3b1bd20343aa948b",
+          "stats": {
+            "date": "2026-11-26",
+            "total": 10,
+            "additions": 9,
+            "deletions": 1
+          },
+          "author": "HU08 Validation",
+          "commit": {
+            "url": "https://github.com/hu07-validation/official-scripts-database-1795668643900/commit/b9fa3d3a316c33aaeadad6bc3b1bd20343aa948b",
+            "date": "2026-11-26T04:50:55.000Z",
+            "message": "Prueba HU08 fallidos"
+          },
+          "coverage": 100,
+          "conclusion": "failure",
+          "test_count": 2,
+          "failed_tests": 1
+        },
+        {
+          "sha": "66d32d476bead3ac6f83497edfc569f30971f543",
+          "stats": {
+            "date": "2026-11-26",
+            "total": 11,
+            "additions": 8,
+            "deletions": 3
+          },
+          "author": "HU08 Validation",
+          "commit": {
+            "url": "https://github.com/hu07-validation/official-scripts-database-1795668643900/commit/HEAD",
+            "date": "2026-11-26T04:51:02.000Z",
+            "message": "Prueba HU08 sin-tests"
+          },
+          "coverage": 0,
+          "conclusion": "skipped",
+          "test_count": 0,
+          "failed_tests": 0
+        }
+      ],
+      "tdd_log": [
+        {
+          "testId": 0,
+          "success": true,
+          "timestamp": 1795668645346,
+          "failedTests": 0,
+          "numTotalTests": 2,
+          "numPassedTests": 2
+        },
+        {
+          "testId": 0,
+          "commitId": "e50955f2db481d9d26a38299f8fa486702917d4f",
+          "commitName": "Prueba HU08 aprobados",
+          "commitTimestamp": 1795668646933
+        },
+        {
+          "testId": 1,
+          "success": false,
+          "timestamp": 1795668654469,
+          "failedTests": 1,
+          "numTotalTests": 2,
+          "numPassedTests": 1
+        },
+        {
+          "testId": 1,
+          "commitId": "b9fa3d3a316c33aaeadad6bc3b1bd20343aa948b",
+          "commitName": "Prueba HU08 fallidos",
+          "commitTimestamp": 1795668655995
+        },
+        {
+          "testId": 2,
+          "success": true,
+          "timestamp": 1795668662036,
+          "failedTests": 0,
+          "numTotalTests": 0,
+          "numPassedTests": 0
+        },
+        {
+          "testId": 2,
+          "commitId": "66d32d476bead3ac6f83497edfc569f30971f543",
+          "commitName": "Prueba HU08 sin-tests",
+          "commitTimestamp": 1795668662539
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "sha": "66d32d476bead3ac6f83497edfc569f30971f543",
+      "owner": "hu07-validation",
+      "reponame": "official-scripts-database-1795668643900",
+      "conclusion": "skipped",
+      "branch": "feature/hu07-validation"
+    },
+    {
+      "sha": "b9fa3d3a316c33aaeadad6bc3b1bd20343aa948b",
+      "owner": "hu07-validation",
+      "reponame": "official-scripts-database-1795668643900",
+      "conclusion": "failure",
+      "branch": "feature/hu07-validation"
+    },
+    {
+      "sha": "e50955f2db481d9d26a38299f8fa486702917d4f",
+      "owner": "hu07-validation",
+      "reponame": "official-scripts-database-1795668643900",
+      "conclusion": "success",
+      "branch": "feature/hu07-validation"
+    }
+  ]
+}

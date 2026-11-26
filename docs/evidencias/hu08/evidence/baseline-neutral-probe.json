@@ -1,0 +1,9 @@
+{
+  "httpStatus": 400,
+  "body": {
+    "error": "Invalid field: commitHistory[0].conclusion",
+    "field": "commitHistory[0].conclusion"
+  },
+  "sourceConclusion": "neutral",
+  "sentConclusion": "neutral"
+}

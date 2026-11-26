@@ -1,0 +1,4 @@
+√ Built in 4.33s
+
+dist\index.html           485 B    280ms
+dist\index.ecccb643.js    379 B    309ms

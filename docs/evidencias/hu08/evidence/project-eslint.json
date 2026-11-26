@@ -1,0 +1,1429 @@
+[
+  {
+    "file": "coverage/lcov-report/block-navigation.js",
+    "errors": 0,
+    "warnings": 0,
+    "messages": []
+  },
+  {
+    "file": "coverage/lcov-report/prettify.js",
+    "errors": 0,
+    "warnings": 0,
+    "messages": []
+  },
+  {
+    "file": "coverage/lcov-report/sorter.js",
+    "errors": 0,
+    "warnings": 0,
+    "messages": []
+  },
+  {
+    "file": "cypress.config.js",
+    "errors": 4,
+    "warnings": 0,
+    "messages": [
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 2,
+        "column": 30,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-unused-vars",
+        "severity": 2,
+        "line": 6,
+        "column": 21,
+        "message": "'on' is defined but never used. Allowed unused args must match /^_/u."
+      },
+      {
+        "rule": "no-unused-vars",
+        "severity": 2,
+        "line": 6,
+        "column": 25,
+        "message": "'config' is defined but never used. Allowed unused args must match /^_/u."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 9,
+        "column": 14,
+        "message": "Strings must use singlequote."
+      }
+    ]
+  },
+  {
+    "file": "cypress/e2e/sumador.cy.js",
+    "errors": 9,
+    "warnings": 0,
+    "messages": [
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 1,
+        "column": 10,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 2,
+        "column": 6,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 3,
+        "column": 14,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 4,
+        "column": 12,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 5,
+        "column": 12,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 6,
+        "column": 12,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 7,
+        "column": 12,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 7,
+        "column": 37,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 7,
+        "column": 48,
+        "message": "Strings must use singlequote."
+      }
+    ]
+  },
+  {
+    "file": "cypress/support/commands.js",
+    "errors": 0,
+    "warnings": 0,
+    "messages": []
+  },
+  {
+    "file": "cypress/support/e2e.js",
+    "errors": 1,
+    "warnings": 0,
+    "messages": [
+      {
+        "rule": "semi",
+        "severity": 2,
+        "line": 17,
+        "column": 20,
+        "message": "Missing semicolon."
+      }
+    ]
+  },
+  {
+    "file": "dist/index.ecccb643.js",
+    "errors": 11,
+    "warnings": 0,
+    "messages": [
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 1,
+        "column": 32,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 1,
+        "column": 75,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 1,
+        "column": 119,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 1,
+        "column": 159,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 1,
+        "column": 196,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-shadow",
+        "severity": 2,
+        "line": 1,
+        "column": 205,
+        "message": "'u' is already declared in the upper scope on line 1 column 94."
+      },
+      {
+        "rule": "prefer-const",
+        "severity": 2,
+        "line": 1,
+        "column": 232,
+        "message": "'n' is never reassigned. Use 'const' instead."
+      },
+      {
+        "rule": "prefer-const",
+        "severity": 2,
+        "line": 1,
+        "column": 259,
+        "message": "'o' is never reassigned. Use 'const' instead."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 1,
+        "column": 298,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 1,
+        "column": 310,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "semi",
+        "severity": 2,
+        "line": 1,
+        "column": 316,
+        "message": "Missing semicolon."
+      }
+    ]
+  },
+  {
+    "file": "eslint.config.js",
+    "errors": 0,
+    "warnings": 0,
+    "messages": []
+  },
+  {
+    "file": "script/commit-tracker.js",
+    "errors": 47,
+    "warnings": 10,
+    "messages": [
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 1,
+        "column": 16,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-unused-vars",
+        "severity": 2,
+        "line": 2,
+        "column": 20,
+        "message": "'exec' is defined but never used."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 2,
+        "column": 32,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 3,
+        "column": 24,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 4,
+        "column": 18,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 5,
+        "column": 20,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 7,
+        "column": 19,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 8,
+        "column": 21,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 13,
+        "column": 33,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 26,
+        "column": 5,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 26,
+        "column": 5,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 30,
+        "column": 17,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 32,
+        "column": 24,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 35,
+        "column": 26,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 36,
+        "column": 28,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 37,
+        "column": 55,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 40,
+        "column": 5,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 40,
+        "column": 5,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 40,
+        "column": 18,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 49,
+        "column": 52,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 57,
+        "column": 18,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-unused-vars",
+        "severity": 2,
+        "line": 58,
+        "column": 16,
+        "message": "'error' is defined but never used."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 76,
+        "column": 7,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 76,
+        "column": 7,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 90,
+        "column": 9,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 90,
+        "column": 9,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 91,
+        "column": 11,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 97,
+        "column": 5,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 97,
+        "column": 5,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 107,
+        "column": 20,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 109,
+        "column": 21,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 111,
+        "column": 53,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 119,
+        "column": 20,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-unused-vars",
+        "severity": 2,
+        "line": 122,
+        "column": 16,
+        "message": "'jestError' is defined but never used."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 126,
+        "column": 68,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 152,
+        "column": 42,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 152,
+        "column": 54,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 159,
+        "column": 11,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 159,
+        "column": 11,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 164,
+        "column": 9,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 164,
+        "column": 9,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 164,
+        "column": 22,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 167,
+        "column": 7,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 167,
+        "column": 7,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 167,
+        "column": 20,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 185,
+        "column": 30,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 198,
+        "column": 55,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 200,
+        "column": 7,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 200,
+        "column": 7,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 200,
+        "column": 21,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 209,
+        "column": 33,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 214,
+        "column": 59,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 231,
+        "column": 49,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 256,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 256,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 256,
+        "column": 17,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 257,
+        "column": 3,
+        "message": "'process' is not defined."
+      }
+    ]
+  },
+  {
+    "file": "script/commitScript.js",
+    "errors": 3,
+    "warnings": 2,
+    "messages": [
+      {
+        "rule": "prefer-const",
+        "severity": 2,
+        "line": 18,
+        "column": 9,
+        "message": "'testId' is never reassigned. Use 'const' instead."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 26,
+        "column": 13,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 26,
+        "column": 13,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 37,
+        "column": 13,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 37,
+        "column": 13,
+        "message": "Unexpected console statement."
+      }
+    ]
+  },
+  {
+    "file": "script/id_execution_tests_commit.js",
+    "errors": 2,
+    "warnings": 0,
+    "messages": [
+      {
+        "rule": "no-trailing-spaces",
+        "severity": 2,
+        "line": 27,
+        "column": 1,
+        "message": "Trailing spaces not allowed."
+      },
+      {
+        "rule": "object-curly-spacing",
+        "severity": 2,
+        "line": 39,
+        "column": 8,
+        "message": "A space is required after '{'."
+      }
+    ]
+  },
+  {
+    "file": "script/send-test-results.js",
+    "errors": 0,
+    "warnings": 0,
+    "messages": []
+  },
+  {
+    "file": "script/tddScript.js",
+    "errors": 7,
+    "warnings": 1,
+    "messages": [
+      {
+        "rule": "no-shadow",
+        "severity": 2,
+        "line": 10,
+        "column": 30,
+        "message": "'args' is already declared in the upper scope on line 8 column 7."
+      },
+      {
+        "rule": "no-unused-vars",
+        "severity": 2,
+        "line": 11,
+        "column": 32,
+        "message": "'reject' is defined but never used. Allowed unused args must match /^_/u."
+      },
+      {
+        "rule": "no-unused-vars",
+        "severity": 2,
+        "line": 13,
+        "column": 26,
+        "message": "'code' is defined but never used. Allowed unused args must match /^_/u."
+      },
+      {
+        "rule": "no-trailing-spaces",
+        "severity": 2,
+        "line": 43,
+        "column": 49,
+        "message": "Trailing spaces not allowed."
+      },
+      {
+        "rule": "prefer-const",
+        "severity": 2,
+        "line": 47,
+        "column": 9,
+        "message": "'testId' is never reassigned. Use 'const' instead."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 63,
+        "column": 5,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 63,
+        "column": 5,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 63,
+        "column": 19,
+        "message": "Strings must use singlequote."
+      }
+    ]
+  },
+  {
+    "file": "script/tests/test-results.test.mjs",
+    "errors": 0,
+    "warnings": 0,
+    "messages": []
+  },
+  {
+    "file": "semantic-commits.js",
+    "errors": 51,
+    "warnings": 27,
+    "messages": [
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 12,
+        "column": 5,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 12,
+        "column": 5,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 13,
+        "column": 5,
+        "message": "'process' is not defined."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 19,
+        "column": 14,
+        "message": "'process' is not defined."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 34,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 34,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 34,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 35,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 35,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 35,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 36,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 36,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 36,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 37,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 37,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 37,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 38,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 38,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 38,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 39,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 39,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 39,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 40,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 40,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 40,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 41,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 41,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 41,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 42,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 42,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 42,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 43,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 43,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 43,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 44,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 44,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 44,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 45,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 45,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 45,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 46,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 46,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 46,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 47,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 47,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 47,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 48,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 48,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 48,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 49,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 49,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 49,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 50,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 50,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 50,
+        "column": 15,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 54,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 54,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 55,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 55,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 56,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 56,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 57,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 57,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 58,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 58,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 66,
+        "column": 7,
+        "message": "'process' is not defined."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 68,
+        "column": 5,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 68,
+        "column": 5,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 70,
+        "column": 5,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 70,
+        "column": 5,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 71,
+        "column": 5,
+        "message": "'process' is not defined."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 77,
+        "column": 3,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 77,
+        "column": 3,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "curly",
+        "severity": 2,
+        "line": 78,
+        "column": 27,
+        "message": "Expected { after 'if' condition."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 79,
+        "column": 3,
+        "message": "'process' is not defined."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 93,
+        "column": 5,
+        "message": "'console' is not defined."
+      },
+      {
+        "rule": "no-console",
+        "severity": 1,
+        "line": 93,
+        "column": 5,
+        "message": "Unexpected console statement."
+      },
+      {
+        "rule": "no-undef",
+        "severity": 2,
+        "line": 95,
+        "column": 3,
+        "message": "'process' is not defined."
+      }
+    ]
+  },
+  {
+    "file": "src/presenter.js",
+    "errors": 8,
+    "warnings": 0,
+    "messages": [
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 1,
+        "column": 19,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 3,
+        "column": 38,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 4,
+        "column": 39,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 5,
+        "column": 37,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 6,
+        "column": 36,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 8,
+        "column": 23,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 14,
+        "column": 19,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 14,
+        "column": 62,
+        "message": "Strings must use singlequote."
+      }
+    ]
+  },
+  {
+    "file": "src/sumador.js",
+    "errors": 0,
+    "warnings": 0,
+    "messages": []
+  },
+  {
+    "file": "src/sumador.test.js",
+    "errors": 3,
+    "warnings": 0,
+    "messages": [
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 1,
+        "column": 19,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 3,
+        "column": 10,
+        "message": "Strings must use singlequote."
+      },
+      {
+        "rule": "quotes",
+        "severity": 2,
+        "line": 4,
+        "column": 6,
+        "message": "Strings must use singlequote."
+      }
+    ]
+  }
+]

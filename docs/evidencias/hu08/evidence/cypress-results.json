@@ -1,0 +1,43 @@
+{
+  "browser": "electron",
+  "browserVersion": "118.0.5993.159",
+  "totalTests": 2,
+  "totalPassed": 2,
+  "totalFailed": 0,
+  "startedAt": "2026-11-26T04:55:51.754Z",
+  "endedAt": "2026-11-26T04:55:59.451Z",
+  "runs": [
+    {
+      "spec": "script\\tests\\migration-browser.cy.cjs",
+      "stats": {
+        "duration": 7697,
+        "endedAt": "2026-11-26T04:55:59.451Z",
+        "failures": 0,
+        "passes": 2,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2026-11-26T04:55:51.754Z",
+        "suites": 1,
+        "tests": 2
+      },
+      "tests": [
+        {
+          "title": [
+            "HU08 integración de los scripts oficiales con PostgreSQL y vista",
+            "compara los respaldos reales con SELECT HTTP y los tres bloques"
+          ],
+          "state": "passed",
+          "error": null
+        },
+        {
+          "title": [
+            "HU08 integración de los scripts oficiales con PostgreSQL y vista",
+            "la aplicación base compilada sigue sumando en el navegador"
+          ],
+          "state": "passed",
+          "error": null
+        }
+      ]
+    }
+  ]
+}

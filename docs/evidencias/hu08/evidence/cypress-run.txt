@@ -1,0 +1,76 @@
+
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        13.13.3                                                                        │
+  │ Browser:        Electron 118 (headless)                                                        │
+  │ Node Version:   v22.23.5 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          1 found (migration-browser.cy.cjs)                                             │
+  │ Searched:       C:\Users\andre\OneDrive\Escritorio\UCB\2026\TALLER DE DESARROLLO\TDDLABBASE PR │
+  │                 OJECT\TDDLabBaseProject\script\tests\migration-browser.cy.cjs                  │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  Running:  migration-browser.cy.cjs                                                        (1 of 1)
+
+
+  HU08 integración de los scripts oficiales con PostgreSQL y vista
+    √ compara los respaldos reales con SELECT HTTP y los tres bloques (4702ms)
+    √ la aplicación base compilada sigue sumando en el navegador (929ms)
+
+
+  2 passing (8s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      2                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  5                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     7 seconds                                                                        │
+  │ Spec Ran:     migration-browser.cy.cjs                                                         │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Users\andre\OneDrive\Escritorio\UCB\2026\TALLER DE DESARROLLO\TDDLABBASE PROJ     (1021x233)
+     ECT\TDDLabBaseProject\docs\evidencias\hu08\evidence\screenshots\migration-browse
+     r.cy.cjs\01-aprobados.png
+  -  C:\Users\andre\OneDrive\Escritorio\UCB\2026\TALLER DE DESARROLLO\TDDLABBASE PROJ     (1021x233)
+     ECT\TDDLabBaseProject\docs\evidencias\hu08\evidence\screenshots\migration-browse
+     r.cy.cjs\02-fallidos.png
+  -  C:\Users\andre\OneDrive\Escritorio\UCB\2026\TALLER DE DESARROLLO\TDDLABBASE PROJ     (1021x233)
+     ECT\TDDLabBaseProject\docs\evidencias\hu08\evidence\screenshots\migration-browse
+     r.cy.cjs\03-sin-tests.png
+  -  C:\Users\andre\OneDrive\Escritorio\UCB\2026\TALLER DE DESARROLLO\TDDLABBASE PROJ    (1280x1056)
+     ECT\TDDLabBaseProject\docs\evidencias\hu08\evidence\screenshots\migration-browse
+     r.cy.cjs\04-flujo-scripts-base-vista.png
+  -  C:\Users\andre\OneDrive\Escritorio\UCB\2026\TALLER DE DESARROLLO\TDDLABBASE PROJ      (884x113)
+     ECT\TDDLabBaseProject\docs\evidencias\hu08\evidence\screenshots\migration-browse
+     r.cy.cjs\05-sumador-compilado.png
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ √  migration-browser.cy.cjs                 00:07        2        2        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    √  All specs passed!                        00:07        2        2        -        -        -
+
+
+DevTools listening on ws://127.0.0.1:57113/devtools/browser/4333b531-743e-4512-afbd-73ea5fb73f2e
